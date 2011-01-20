@@ -30,7 +30,7 @@ setup(name='agx.generator.zca',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'agx.io.zcml',
+          'node.ext.zcml',
           'agx.generator.pyegg',
       ],
       extras_require = dict(

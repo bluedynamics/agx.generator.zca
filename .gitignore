@@ -1,0 +1,3 @@
+*.pyc
+*.pyo
+src/agx.generator.zca.egg-info

@@ -22,4 +22,4 @@ Setup configuration and emulate main routine.
     >>> #controller = agx.core.Controller()
     >>> #target = controller(modelpaths, outdir)
     >>> #target
-    <agx.io.directory.directory.Directory object at ...>
+    <node.ext.directory.directory.Directory object at ...>
