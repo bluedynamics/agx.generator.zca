@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_6429sL9iEeChV7DRlkTX8Q" name="Model">
-  <packageImport xmi:id="_6429sb9iEeChV7DRlkTX8Q">
-    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
-  </packageImport>
-  <packagedElement xmi:type="uml:Class" xmi:id="_8iAFwL9iEeChV7DRlkTX8Q" name="AdaptedClass"/>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_OvV_8L9jEeChV7DRlkTX8Q" name="Interface0"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_cGeZIL9jEeChV7DRlkTX8Q" name="ClassAdapter" clientDependency="_2KvMQL9jEeChV7DRlkTX8Q"/>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_qe5QML9jEeChV7DRlkTX8Q" name="Interface1"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_sj_UcL9jEeChV7DRlkTX8Q" name="InterfaceAdapter"/>
-  <packagedElement xmi:type="uml:Abstraction" xmi:id="_2KvMQL9jEeChV7DRlkTX8Q" name="Abstraction0" supplier="_OvV_8L9jEeChV7DRlkTX8Q" client="_cGeZIL9jEeChV7DRlkTX8Q"/>
-</uml:Model>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:zca="http:///schemas/zca/_48HpwL-aEeCXSLIizrgdww/2" xsi:schemaLocation="http:///schemas/zca/_48HpwL-aEeCXSLIizrgdww/2 ../../profiles/zca.profile.uml#_48Hpwb-aEeCXSLIizrgdww">
+  <uml:Model xmi:id="_6429sL9iEeChV7DRlkTX8Q" name="Model">
+    <packageImport xmi:id="_6429sb9iEeChV7DRlkTX8Q">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_8iAFwL9iEeChV7DRlkTX8Q" name="AdaptedClass"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_OvV_8L9jEeChV7DRlkTX8Q" name="Interface0"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cGeZIL9jEeChV7DRlkTX8Q" name="ClassAdapter" clientDependency="_mmsksL9lEeChV7DRlkTX8Q _aDt8wL-bEeCXSLIizrgdww"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_qe5QML9jEeChV7DRlkTX8Q" name="IAdapted"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_sj_UcL9jEeChV7DRlkTX8Q" name="InterfaceAdapter" clientDependency="_EkuPIL-cEeCXSLIizrgdww _L4McwL-cEeCXSLIizrgdww"/>
+    <packagedElement xmi:type="uml:Realization" xmi:id="_mmsksL9lEeChV7DRlkTX8Q" name="Realization0" supplier="_OvV_8L9jEeChV7DRlkTX8Q" client="_cGeZIL9jEeChV7DRlkTX8Q"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_aDt8wL-bEeCXSLIizrgdww" name="Dependency0" supplier="_8iAFwL9iEeChV7DRlkTX8Q" client="_cGeZIL9jEeChV7DRlkTX8Q"/>
+    <packagedElement xmi:type="uml:Realization" xmi:id="_EkuPIL-cEeCXSLIizrgdww" name="Realization1" supplier="_OvV_8L9jEeChV7DRlkTX8Q" client="_sj_UcL9jEeChV7DRlkTX8Q"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_L4McwL-cEeCXSLIizrgdww" name="Dependency1" supplier="_qe5QML9jEeChV7DRlkTX8Q" client="_sj_UcL9jEeChV7DRlkTX8Q"/>
+    <profileApplication xmi:id="_PKeK0L9lEeChV7DRlkTX8Q">
+      <eAnnotations xmi:id="_PLp2kL9lEeChV7DRlkTX8Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_3wLrQItxEd-VCMTaPn6cow"/>
+      </eAnnotations>
+      <appliedProfile href="../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_HHBJsNqqEd6cif0axL0c4w"/>
+    </profileApplication>
+    <profileApplication xmi:id="_JnzfkL99EeChV7DRlkTX8Q">
+      <eAnnotations xmi:id="_JpRfML99EeChV7DRlkTX8Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/schemas/Standard/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_TOSWAL-bEeCXSLIizrgdww">
+      <eAnnotations xmi:id="_TPqPAL-bEeCXSLIizrgdww" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../../profiles/zca.profile.uml#_48Hpwb-aEeCXSLIizrgdww"/>
+      </eAnnotations>
+      <appliedProfile href="../../profiles/zca.profile.uml#_gTeSUL-VEeCXSLIizrgdww"/>
+    </profileApplication>
+  </uml:Model>
+  <zca:adapts xmi:id="_w4LMAL-bEeCXSLIizrgdww" base_Dependency="_aDt8wL-bEeCXSLIizrgdww"/>
+  <zca:adapter xmi:id="_6lrzIL-bEeCXSLIizrgdww" base_Class="_cGeZIL9jEeChV7DRlkTX8Q"/>
+  <zca:adapts xmi:id="_NeLjIL-cEeCXSLIizrgdww" base_Dependency="_L4McwL-cEeCXSLIizrgdww"/>
+  <zca:adapter xmi:id="_RvSzAL-cEeCXSLIizrgdww" base_Class="_sj_UcL9jEeChV7DRlkTX8Q"/>
+</xmi:XMI>
