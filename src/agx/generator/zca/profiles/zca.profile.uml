@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_MJ1mUI8zEd-GMqZGqr0NNw" name="zca">
+<uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_MJ1mUI8zEd-GMqZGqr0NNw" name="zca" metaclassReference="_VKD9cL9fEeCIr7LTJAqv0Q _kV840L9fEeCIr7LTJAqv0Q">
+  <elementImport xmi:id="_VKD9cL9fEeCIr7LTJAqv0Q" alias="Class">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <elementImport xmi:id="_kV840L9fEeCIr7LTJAqv0Q" alias="Operation">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Operation"/>
+  </elementImport>
   <packageImport xmi:id="_MJ1mUY8zEd-GMqZGqr0NNw">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_0I2mUL9eEeCIr7LTJAqv0Q" name="adapter">
+    <ownedAttribute xmi:id="_rsir4L9fEeCIr7LTJAqv0Q" name="base_Class" association="_rsjS8L9fEeCIr7LTJAqv0Q">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_tgJXgL9fEeCIr7LTJAqv0Q" name="base_Operation" association="_tgJXgb9fEeCIr7LTJAqv0Q">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Operation"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_CroTQL9fEeCIr7LTJAqv0Q" name="utility">
+    <ownedAttribute xmi:id="_stpjkL9fEeCIr7LTJAqv0Q" name="base_Operation" association="_stqKoL9fEeCIr7LTJAqv0Q">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Operation"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_uPbfYL9fEeCIr7LTJAqv0Q" name="base_Class" association="_uPcGcL9fEeCIr7LTJAqv0Q">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_rsjS8L9fEeCIr7LTJAqv0Q" name="E_adapter_Class0" memberEnd="_rsjS8b9fEeCIr7LTJAqv0Q _rsir4L9fEeCIr7LTJAqv0Q">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_rsjS8b9fEeCIr7LTJAqv0Q" name="extension_adapter" type="_0I2mUL9eEeCIr7LTJAqv0Q" aggregation="composite" association="_rsjS8L9fEeCIr7LTJAqv0Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_stqKoL9fEeCIr7LTJAqv0Q" name="E_utility_Operation0" memberEnd="_stqKob9fEeCIr7LTJAqv0Q _stpjkL9fEeCIr7LTJAqv0Q">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_stqKob9fEeCIr7LTJAqv0Q" name="extension_utility" type="_CroTQL9fEeCIr7LTJAqv0Q" aggregation="composite" association="_stqKoL9fEeCIr7LTJAqv0Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_tgJXgb9fEeCIr7LTJAqv0Q" name="E_adapter_Operation0" memberEnd="_tgJ-kL9fEeCIr7LTJAqv0Q _tgJXgL9fEeCIr7LTJAqv0Q">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_tgJ-kL9fEeCIr7LTJAqv0Q" name="extension_adapter" type="_0I2mUL9eEeCIr7LTJAqv0Q" aggregation="composite" association="_tgJXgb9fEeCIr7LTJAqv0Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_uPcGcL9fEeCIr7LTJAqv0Q" name="E_utility_Class0" memberEnd="_uPcGcb9fEeCIr7LTJAqv0Q _uPbfYL9fEeCIr7LTJAqv0Q">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_uPcGcb9fEeCIr7LTJAqv0Q" name="extension_utility" type="_CroTQL9fEeCIr7LTJAqv0Q" aggregation="composite" association="_uPcGcL9fEeCIr7LTJAqv0Q"/>
+  </packagedElement>
 </uml:Profile>
