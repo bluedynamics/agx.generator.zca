@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_6429sL9iEeChV7DRlkTX8Q" name="Model">
+  <packageImport xmi:id="_6429sb9iEeChV7DRlkTX8Q">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_8iAFwL9iEeChV7DRlkTX8Q" name="AdaptedClass"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_OvV_8L9jEeChV7DRlkTX8Q" name="Interface0"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_cGeZIL9jEeChV7DRlkTX8Q" name="ClassAdapter" clientDependency="_2KvMQL9jEeChV7DRlkTX8Q"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_qe5QML9jEeChV7DRlkTX8Q" name="Interface1"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_sj_UcL9jEeChV7DRlkTX8Q" name="InterfaceAdapter"/>
+  <packagedElement xmi:type="uml:Abstraction" xmi:id="_2KvMQL9jEeChV7DRlkTX8Q" name="Abstraction0" supplier="_OvV_8L9jEeChV7DRlkTX8Q" client="_cGeZIL9jEeChV7DRlkTX8Q"/>
+</uml:Model>
