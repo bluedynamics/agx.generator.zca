@@ -109,7 +109,7 @@
     </eAnnotations>
     <children xmi:type="notation:DecorationNode" xmi:id="_g3_0Vr-YEeCXSLIizrgdww" type="1084"/>
     <element xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Dependency"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g3_0V7-YEeCXSLIizrgdww" x="556" y="112"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g3_0V7-YEeCXSLIizrgdww" x="556" y="104"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_jV9rkL-YEeCXSLIizrgdww" type="1026" fontName="Lucida Grande" fontHeight="11" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jV-SoL-YEeCXSLIizrgdww" source="ShadowFigure">
@@ -165,6 +165,6 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_3DpsQb-aEeCXSLIizrgdww" fontName="Lucida Grande" fontHeight="11"/>
     <element xmi:type="uml:Extension" href="zca.profile.uml#_3DnQAb-aEeCXSLIizrgdww"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3DpsQr-aEeCXSLIizrgdww" points="[-1, -11, 12, 119]$[-38, -155, -25, -25]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3DukwL-aEeCXSLIizrgdww" id="(0.63,0.11)"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3DukwL-aEeCXSLIizrgdww" id="(0.52,0.02)"/>
   </edges>
 </notation:Diagram>

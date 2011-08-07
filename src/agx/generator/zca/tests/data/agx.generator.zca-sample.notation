@@ -27,7 +27,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8jXXvL9iEeChV7DRlkTX8Q"/>
     </children>
     <element xmi:type="uml:Class" href="agx.generator.zca-sample.uml#_8iAFwL9iEeChV7DRlkTX8Q"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8jU7cb9iEeChV7DRlkTX8Q" x="24" y="168" width="105" height="132"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8jU7cb9iEeChV7DRlkTX8Q" x="24" y="192" width="105" height="132"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_OvxdwL9jEeChV7DRlkTX8Q" type="2004" fontName="Lucida Grande" fontHeight="11" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Ovyr4L9jEeChV7DRlkTX8Q" source="ShadowFigure">
@@ -121,7 +121,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qe_9679jEeChV7DRlkTX8Q"/>
     </children>
     <element xmi:type="uml:Interface" href="agx.generator.zca-sample.uml#_qe5QML9jEeChV7DRlkTX8Q"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qe-vwb9jEeChV7DRlkTX8Q" x="652" y="216"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qe-vwb9jEeChV7DRlkTX8Q" x="648" y="216"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_skGpML9jEeChV7DRlkTX8Q" type="2008" fontName="Lucida Grande" fontHeight="11" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_skHQQL9jEeChV7DRlkTX8Q" source="ShadowFigure">
@@ -170,7 +170,7 @@
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_mnOJIb9lEeChV7DRlkTX8Q" fontName="Lucida Grande" fontHeight="11"/>
     <element xmi:type="uml:Realization" href="agx.generator.zca-sample.uml#_mmsksL9lEeChV7DRlkTX8Q"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_mnOJIr9lEeChV7DRlkTX8Q" points="[-2, -18, 0, 96]$[-2, -102, 0, 12]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_mnOJIr9lEeChV7DRlkTX8Q" points="[43, -18, -51, 100]$[83, -34, -11, 84]$[92, -106, -2, 12]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_mn3CUL9lEeChV7DRlkTX8Q" id="(0.53,0.18)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_mn3CUb9lEeChV7DRlkTX8Q" id="(0.51,0.88)"/>
   </edges>
