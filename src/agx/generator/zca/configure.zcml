@@ -8,5 +8,13 @@
 	provides="agx.core.interfaces.IProfileLocation"
 	component=".profiles.ProfileLocation"
   />
+  
+  <agx:generator
+    name="zcagenerator"
+    transform="uml2fs"
+    depends="NO"
+    description="Generator for code sematics."
+  />
+  <!-- sematicsgenerator -->
 
 </configure>

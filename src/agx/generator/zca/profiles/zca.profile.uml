@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_gTeSUL-VEeCXSLIizrgdww" name="zca" metaclassReference="_YjAxQL-WEeCXSLIizrgdww _c2h04L-WEeCXSLIizrgdww _g38xAL-YEeCXSLIizrgdww" metamodelReference="_gTeSUb-VEeCXSLIizrgdww">
   <eAnnotations xmi:id="_O2wccL-YEeCXSLIizrgdww" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_tHodoMDPEeCxefAFv8S0xQ" name="zca" nsURI="http:///schemas/zca/_tHmBYMDPEeCxefAFv8S0xQ/3" nsPrefix="zca">
+      <eAnnotations xmi:id="_tHq54cDPEeCxefAFv8S0xQ" source="PapyrusVersion">
+        <details xmi:id="_tHq54sDPEeCxefAFv8S0xQ" key="Version" value="0.0.4"/>
+        <details xmi:id="_tHq548DPEeCxefAFv8S0xQ" key="Comment" value=""/>
+        <details xmi:id="_tHq55MDPEeCxefAFv8S0xQ" key="Copyright" value=""/>
+        <details xmi:id="_tHq55cDPEeCxefAFv8S0xQ" key="Date" value="2011-08-07"/>
+        <details xmi:id="_tHq55sDPEeCxefAFv8S0xQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_tHodocDPEeCxefAFv8S0xQ" name="adapter">
+        <eAnnotations xmi:id="_tHodosDPEeCxefAFv8S0xQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ngKigL-VEeCXSLIizrgdww"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_tHodo8DPEeCxefAFv8S0xQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_tHodpcDPEeCxefAFv8S0xQ" name="base_Interface" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Interface"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_tHodp8DPEeCxefAFv8S0xQ" name="utility">
+        <eAnnotations xmi:id="_tHodqMDPEeCxefAFv8S0xQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Gczu8L-YEeCXSLIizrgdww"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_tHodqcDPEeCxefAFv8S0xQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_tHodq8DPEeCxefAFv8S0xQ" name="base_Interface" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Interface"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_tHodrcDPEeCxefAFv8S0xQ" name="adapts">
+        <eAnnotations xmi:id="_tHodrsDPEeCxefAFv8S0xQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_jV72YL-YEeCXSLIizrgdww"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_tHodr8DPEeCxefAFv8S0xQ" name="base_Dependency" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
     <contents xmi:type="ecore:EPackage" xmi:id="_48Hpwb-aEeCXSLIizrgdww" name="zca" nsURI="http:///schemas/zca/_48HpwL-aEeCXSLIizrgdww/2" nsPrefix="zca">
       <eAnnotations xmi:id="_48Je8b-aEeCXSLIizrgdww" source="PapyrusVersion">
         <details xmi:id="_48Je8r-aEeCXSLIizrgdww" key="Version" value="0.0.3"/>
@@ -118,7 +151,7 @@
   <packagedElement xmi:type="uml:Extension" xmi:id="_q33zQL-XEeCXSLIizrgdww" name="E_adapter_Interface0" memberEnd="_q33zQb-XEeCXSLIizrgdww _q33MML-XEeCXSLIizrgdww">
     <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_q33zQb-XEeCXSLIizrgdww" name="extension_adapter" type="_ngKigL-VEeCXSLIizrgdww" aggregation="composite" association="_q33zQL-XEeCXSLIizrgdww"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Stereotype" xmi:id="_Gczu8L-YEeCXSLIizrgdww" name="tool">
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_Gczu8L-YEeCXSLIizrgdww" name="utility">
     <ownedAttribute xmi:id="_I53AML-YEeCXSLIizrgdww" name="base_Class" association="_I53AMb-YEeCXSLIizrgdww">
       <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
     </ownedAttribute>
@@ -126,11 +159,11 @@
       <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Interface"/>
     </ownedAttribute>
   </packagedElement>
-  <packagedElement xmi:type="uml:Extension" xmi:id="_I53AMb-YEeCXSLIizrgdww" name="E_tool_Class0" memberEnd="_I53AMr-YEeCXSLIizrgdww _I53AML-YEeCXSLIizrgdww">
-    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_I53AMr-YEeCXSLIizrgdww" name="extension_tool" type="_Gczu8L-YEeCXSLIizrgdww" aggregation="composite" association="_I53AMb-YEeCXSLIizrgdww"/>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_I53AMb-YEeCXSLIizrgdww" name="E_utility_Class0" memberEnd="_I53AMr-YEeCXSLIizrgdww _I53AML-YEeCXSLIizrgdww">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_I53AMr-YEeCXSLIizrgdww" name="extension_utility" type="_Gczu8L-YEeCXSLIizrgdww" aggregation="composite" association="_I53AMb-YEeCXSLIizrgdww"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Extension" xmi:id="_JdBXob-YEeCXSLIizrgdww" name="E_tool_Interface0" memberEnd="_JdBXor-YEeCXSLIizrgdww _JdBXoL-YEeCXSLIizrgdww">
-    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_JdBXor-YEeCXSLIizrgdww" name="extension_tool" type="_Gczu8L-YEeCXSLIizrgdww" aggregation="composite" association="_JdBXob-YEeCXSLIizrgdww"/>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_JdBXob-YEeCXSLIizrgdww" name="E_utility_Interface0" memberEnd="_JdBXor-YEeCXSLIizrgdww _JdBXoL-YEeCXSLIizrgdww">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_JdBXor-YEeCXSLIizrgdww" name="extension_utility" type="_Gczu8L-YEeCXSLIizrgdww" aggregation="composite" association="_JdBXob-YEeCXSLIizrgdww"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_jV72YL-YEeCXSLIizrgdww" name="adapts">
     <ownedAttribute xmi:id="_3DnQAL-aEeCXSLIizrgdww" name="base_Dependency" association="_3DnQAb-aEeCXSLIizrgdww">

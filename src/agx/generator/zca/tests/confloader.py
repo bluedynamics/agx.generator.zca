@@ -5,6 +5,7 @@ from zope.interface import implements
 from zope.configuration.xmlconfig import XMLConfig
 from agx.core.interfaces import IConfLoader
 import agx.generator.uml
+import agx.generator.pyegg
 import agx.generator.zca
 
 class ConfLoader(object):
@@ -18,4 +19,5 @@ class ConfLoader(object):
     
     def __call__(self):
         XMLConfig('configure.zcml', agx.generator.uml)()
+        XMLConfig('configure.zcml', agx.generator.pyegg)()
         XMLConfig('configure.zcml', agx.generator.zca)()
