@@ -91,8 +91,6 @@ def zcaadapts(self, source, target):
     path=targetdir.path
     path.append('adapters.zcml')
     fullpath=os.path.join(*path)
-    import pdb;pdb.set_trace()
     zcml=ZCMLFile(fullpath)
     targetdir['adapters.zcml']=zcml
     
-    pass
