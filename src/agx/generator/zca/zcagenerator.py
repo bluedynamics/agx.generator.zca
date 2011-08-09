@@ -1,10 +1,13 @@
+import os
+
 from agx.core import (
     handler,
     Scope,
     registerScope,
+    token
 )
 from agx.core.util import read_target_node
-from node.ext.uml.interfaces import IInterface
+from node.ext.uml.interfaces import IInterface,IInterfaceRealization,IDependency
 from node.ext.python.interfaces import IFunction
 from node.ext.python.nodes import (
     Function,
@@ -14,9 +17,18 @@ from node.ext.python.nodes import (
 from agx.generator.zca.scope import (
     UtilityScope,
     AdapterScope,
+    AdaptsScope,
 )
 
+from node.ext.zcml import ZCMLNode
+from node.ext.zcml import ZCMLFile
+from node.ext.zcml import SimpleDirective
+from node.ext.zcml import ComplexDirective
+
+
 registerScope('zcainterface', 'uml2fs', [IInterface], Scope)
+registerScope('zcarealize', 'uml2fs', [IInterfaceRealization], Scope)
+registerScope('zcaadapts', 'uml2fs', None, AdaptsScope)
 
 @handler('zcainterface', 'uml2fs', 'zcagenerator', 'zcainterface')
 def zcainterface(self, source, target):
@@ -48,15 +60,39 @@ def zcaadapterdefaultinit(self, source, target):
             break
     if not exists:
         func = Function('__init__')
-        func.args.append('self', 'context')
+        func.args.append('context')
         block = Block()
         block.text = 'self.context = context'
         func[block.uuid] = block
         adapter_class[func.uuid] = func
 
-@handler('zcaadapter', 'uml2fs', 'zcagenerator', 'zcaadapter')
+@handler('zcaadapter_py_imports', 'uml2fs','zcagenerator','zcaadapter')
 def zcaadapter(self, source, target):
+    pass
+
+@handler('zcaadapter_zcml', 'uml2fs', 'zcagenerator', 'zcaadapter')
+def zcaadapter_zcml(self, source, target):
     """Create zope adapter.
     """
+#    import pdb;pdb.set_trace()
     #print 'zcaadapter'
     #print source, target
+
+@handler('zcarealize', 'uml2fs','zcagenerator','zcaadapter')
+def zcarealize(self, source, target):
+    pass
+
+@handler('zcaadapts', 'uml2fs','zcagenerator','zcaadapts')
+def zcaadapts(self, source, target):
+    tok=token(str(source.client.uuid),True)
+    pack=source.parent
+#    path=pack.path
+    targetdir=read_target_node(pack, target.target)
+    path=targetdir.path
+    path.append('adapters.zcml')
+    fullpath=os.path.join(*path)
+    import pdb;pdb.set_trace()
+    zcml=ZCMLFile(fullpath)
+    targetdir['adapters.zcml']=zcml
+    
+    pass
