@@ -6,7 +6,7 @@ from agx.core import (
     registerScope,
     token
 )
-from agx.core.util import read_target_node
+from agx.core.util import read_target_node, dotted_path
 from node.ext.uml.interfaces import IInterface,IInterfaceRealization,IDependency
 from node.ext.python.interfaces import IFunction
 from node.ext.python.nodes import (
@@ -86,11 +86,26 @@ def zcarealize(self, source, target):
 def zcaadapts(self, source, target):
     tok=token(str(source.client.uuid),True)
     pack=source.parent
-#    path=pack.path
     targetdir=read_target_node(pack, target.target)
     path=targetdir.path
     path.append('adapters.zcml')
     fullpath=os.path.join(*path)
     zcml=ZCMLFile(fullpath)
     targetdir['adapters.zcml']=zcml
+    _for=dotted_path(source.supplier)
+    factory=dotted_path(source.client)
+    name='%s_adapts_%s' %(factory,_for)
     
+    found_adapts=zcml.filter(tag='adapter',attr='name',value=name)
+    
+    if found_adapts:
+        adapts=found_adapts[0]
+    else:     
+        adapts = SimpleDirective(name='adapter', parent=zcml)
+        
+    adapts.attrs['for'] = _for
+    adapts.attrs['name'] = name
+    adapts.attrs['factory'] = factory
+
+    
+    pass    
