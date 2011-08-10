@@ -107,5 +107,3 @@ def zcaadapts(self, source, target):
     adapts.attrs['name'] = name
     adapts.attrs['factory'] = factory
 
-    import pdb;pdb.set_trace()
-    pass    
