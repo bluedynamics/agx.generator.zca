@@ -22,7 +22,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ngNl2r-VEeCXSLIizrgdww"/>
     </children>
     <element xmi:type="uml:Stereotype" href="zca.profile.uml#_ngKigL-VEeCXSLIizrgdww"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ngMXsb-VEeCXSLIizrgdww" x="172" y="272"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ngMXsb-VEeCXSLIizrgdww" x="144" y="272"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_YjIGAL-WEeCXSLIizrgdww" type="1031" fontName="Lucida Grande" fontHeight="11" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YjJUIL-WEeCXSLIizrgdww" source="ShadowFigure">

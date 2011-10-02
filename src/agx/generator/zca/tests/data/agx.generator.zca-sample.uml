@@ -7,14 +7,18 @@
     <packagedElement xmi:type="uml:Package" xmi:id="_zv05oMDPEeCxefAFv8S0xQ" name="agx.testpackage">
       <packagedElement xmi:type="uml:Class" xmi:id="_8iAFwL9iEeChV7DRlkTX8Q" name="AdaptedClass"/>
       <packagedElement xmi:type="uml:Interface" xmi:id="_OvV_8L9jEeChV7DRlkTX8Q" name="ISomeInterface"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_cGeZIL9jEeChV7DRlkTX8Q" name="ClassAdapter" clientDependency="_mmsksL9lEeChV7DRlkTX8Q _aDt8wL-bEeCXSLIizrgdww"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_cGeZIL9jEeChV7DRlkTX8Q" name="ClassAdapter" clientDependency="_aDt8wL-bEeCXSLIizrgdww _YDKmgOzbEeCd3tEJgk_ubQ">
+        <generalization xmi:id="_xUE-YO0NEeCd3tEJgk_ubQ" general="_F4dd4O0NEeCd3tEJgk_ubQ"/>
+        <interfaceRealization xmi:id="_YDKmgOzbEeCd3tEJgk_ubQ" name="InterfaceRealization0" supplier="_OvV_8L9jEeChV7DRlkTX8Q" client="_cGeZIL9jEeChV7DRlkTX8Q" contract="_OvV_8L9jEeChV7DRlkTX8Q"/>
+      </packagedElement>
       <packagedElement xmi:type="uml:Interface" xmi:id="_qe5QML9jEeChV7DRlkTX8Q" name="IAdapted"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_sj_UcL9jEeChV7DRlkTX8Q" name="InterfaceAdapter" clientDependency="_EkuPIL-cEeCXSLIizrgdww _L4McwL-cEeCXSLIizrgdww"/>
-      <packagedElement xmi:type="uml:Realization" xmi:id="_mmsksL9lEeChV7DRlkTX8Q" name="Realization0" supplier="_OvV_8L9jEeChV7DRlkTX8Q" client="_cGeZIL9jEeChV7DRlkTX8Q"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_sj_UcL9jEeChV7DRlkTX8Q" name="InterfaceAdapter" clientDependency="_L4McwL-cEeCXSLIizrgdww _ayfTgOzbEeCd3tEJgk_ubQ">
+        <interfaceRealization xmi:id="_ayfTgOzbEeCd3tEJgk_ubQ" name="InterfaceRealization0" supplier="_OvV_8L9jEeChV7DRlkTX8Q" client="_sj_UcL9jEeChV7DRlkTX8Q" contract="_OvV_8L9jEeChV7DRlkTX8Q"/>
+      </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_aDt8wL-bEeCXSLIizrgdww" name="Dependency0" supplier="_8iAFwL9iEeChV7DRlkTX8Q" client="_cGeZIL9jEeChV7DRlkTX8Q"/>
-      <packagedElement xmi:type="uml:Realization" xmi:id="_EkuPIL-cEeCXSLIizrgdww" name="Realization1" supplier="_OvV_8L9jEeChV7DRlkTX8Q" client="_sj_UcL9jEeChV7DRlkTX8Q"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_L4McwL-cEeCXSLIizrgdww" name="Dependency1" supplier="_qe5QML9jEeChV7DRlkTX8Q" client="_sj_UcL9jEeChV7DRlkTX8Q"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_2vkBMMDPEeCxefAFv8S0xQ" name="SomeUtility"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_F4dd4O0NEeCd3tEJgk_ubQ" name="SomeBaseClass"/>
     </packagedElement>
     <profileApplication xmi:id="_PKeK0L9lEeChV7DRlkTX8Q">
       <eAnnotations xmi:id="_PLp2kL9lEeChV7DRlkTX8Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
