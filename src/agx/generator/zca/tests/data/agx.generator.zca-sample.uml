@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:pyegg="http:///schemas/pyegg/_3wLEMItxEd-VCMTaPn6cow/12" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:zca="http:///schemas/zca/_tHmBYMDPEeCxefAFv8S0xQ/3" xsi:schemaLocation="http:///schemas/pyegg/_3wLEMItxEd-VCMTaPn6cow/12 ../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_3wLrQItxEd-VCMTaPn6cow http:///schemas/zca/_tHmBYMDPEeCxefAFv8S0xQ/3 ../../profiles/zca.profile.uml#_tHodoMDPEeCxefAFv8S0xQ">
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:pyegg="http:///schemas/pyegg/_qGnOIO05EeCwj9v4T1_ceQ/13" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:zca="http:///schemas/zca/_tHmBYMDPEeCxefAFv8S0xQ/3" xsi:schemaLocation="http:///schemas/pyegg/_qGnOIO05EeCwj9v4T1_ceQ/13 ../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_qGpqYO05EeCwj9v4T1_ceQ http:///schemas/zca/_tHmBYMDPEeCxefAFv8S0xQ/3 ../../profiles/zca.profile.uml#_tHodoMDPEeCxefAFv8S0xQ">
   <uml:Model xmi:id="_6429sL9iEeChV7DRlkTX8Q" name="Model">
     <packageImport xmi:id="_6429sb9iEeChV7DRlkTX8Q">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -12,20 +12,16 @@
         <interfaceRealization xmi:id="_YDKmgOzbEeCd3tEJgk_ubQ" name="InterfaceRealization0" supplier="_OvV_8L9jEeChV7DRlkTX8Q" client="_cGeZIL9jEeChV7DRlkTX8Q" contract="_OvV_8L9jEeChV7DRlkTX8Q"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Interface" xmi:id="_qe5QML9jEeChV7DRlkTX8Q" name="IAdapted"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_sj_UcL9jEeChV7DRlkTX8Q" name="InterfaceAdapter" clientDependency="_L4McwL-cEeCXSLIizrgdww _ayfTgOzbEeCd3tEJgk_ubQ">
+      <packagedElement xmi:type="uml:Class" xmi:id="_sj_UcL9jEeChV7DRlkTX8Q" name="InterfaceAdapter" clientDependency="_L4McwL-cEeCXSLIizrgdww _ayfTgOzbEeCd3tEJgk_ubQ _ZU1wEO2nEeCy9aGswL0b6Q">
         <interfaceRealization xmi:id="_ayfTgOzbEeCd3tEJgk_ubQ" name="InterfaceRealization0" supplier="_OvV_8L9jEeChV7DRlkTX8Q" client="_sj_UcL9jEeChV7DRlkTX8Q" contract="_OvV_8L9jEeChV7DRlkTX8Q"/>
+        <interfaceRealization xmi:id="_ZU1wEO2nEeCy9aGswL0b6Q" name="InterfaceRealization1" supplier="_UHjL0O2nEeCy9aGswL0b6Q" client="_sj_UcL9jEeChV7DRlkTX8Q" contract="_UHjL0O2nEeCy9aGswL0b6Q"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_aDt8wL-bEeCXSLIizrgdww" name="Dependency0" supplier="_8iAFwL9iEeChV7DRlkTX8Q" client="_cGeZIL9jEeChV7DRlkTX8Q"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_L4McwL-cEeCXSLIizrgdww" name="Dependency1" supplier="_qe5QML9jEeChV7DRlkTX8Q" client="_sj_UcL9jEeChV7DRlkTX8Q"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_2vkBMMDPEeCxefAFv8S0xQ" name="SomeUtility"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_F4dd4O0NEeCd3tEJgk_ubQ" name="SomeBaseClass"/>
     </packagedElement>
-    <profileApplication xmi:id="_PKeK0L9lEeChV7DRlkTX8Q">
-      <eAnnotations xmi:id="_PLp2kL9lEeChV7DRlkTX8Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_3wLrQItxEd-VCMTaPn6cow"/>
-      </eAnnotations>
-      <appliedProfile href="../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_HHBJsNqqEd6cif0axL0c4w"/>
-    </profileApplication>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_UHjL0O2nEeCy9aGswL0b6Q" name="StubInterface"/>
     <profileApplication xmi:id="_JnzfkL99EeChV7DRlkTX8Q">
       <eAnnotations xmi:id="_JpRfML99EeChV7DRlkTX8Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/schemas/Standard/1#/"/>
@@ -38,10 +34,17 @@
       </eAnnotations>
       <appliedProfile href="../../profiles/zca.profile.uml#_gTeSUL-VEeCXSLIizrgdww"/>
     </profileApplication>
+    <profileApplication xmi:id="_R8VXQO1AEeCwj9v4T1_ceQ">
+      <eAnnotations xmi:id="_R9EXEO1AEeCwj9v4T1_ceQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_qGpqYO05EeCwj9v4T1_ceQ"/>
+      </eAnnotations>
+      <appliedProfile href="../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_HHBJsNqqEd6cif0axL0c4w"/>
+    </profileApplication>
   </uml:Model>
   <zca:adapter xmi:id="_c3rnwMDQEeCxefAFv8S0xQ" base_Class="_cGeZIL9jEeChV7DRlkTX8Q"/>
   <zca:adapter xmi:id="_dymX4MDQEeCxefAFv8S0xQ" base_Class="_sj_UcL9jEeChV7DRlkTX8Q"/>
   <zca:utility xmi:id="_fuyXwMDQEeCxefAFv8S0xQ" base_Class="_2vkBMMDPEeCxefAFv8S0xQ"/>
-  <pyegg:pyegg xmi:id="_tAh6oMDQEeCxefAFv8S0xQ" base_Package="_zv05oMDPEeCxefAFv8S0xQ"/>
   <zca:adapts xmi:id="_1qkwQMDpEeCXSLIizrgdww" base_Dependency="_aDt8wL-bEeCXSLIizrgdww"/>
+  <pyegg:stub xmi:id="_cB_S0O2nEeCy9aGswL0b6Q" import="agx.somewhere_else.interfaces" base_Interface="_UHjL0O2nEeCy9aGswL0b6Q"/>
+  <pyegg:pyegg xmi:id="_pcUxAO2nEeCy9aGswL0b6Q" base_Package="_zv05oMDPEeCxefAFv8S0xQ"/>
 </xmi:XMI>

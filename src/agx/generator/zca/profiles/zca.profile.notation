@@ -22,7 +22,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ngNl2r-VEeCXSLIizrgdww"/>
     </children>
     <element xmi:type="uml:Stereotype" href="zca.profile.uml#_ngKigL-VEeCXSLIizrgdww"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ngMXsb-VEeCXSLIizrgdww" x="144" y="272"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ngMXsb-VEeCXSLIizrgdww" x="188" y="268"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_YjIGAL-WEeCXSLIizrgdww" type="1031" fontName="Lucida Grande" fontHeight="11" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YjJUIL-WEeCXSLIizrgdww" source="ShadowFigure">
@@ -43,7 +43,7 @@
     </eAnnotations>
     <children xmi:type="notation:DecorationNode" xmi:id="_YjKiQr-WEeCXSLIizrgdww" type="1084"/>
     <element xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YjKiQ7-WEeCXSLIizrgdww" x="172" y="108"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YjKiQ7-WEeCXSLIizrgdww" x="200" y="108"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_c2kRIL-WEeCXSLIizrgdww" type="1031" fontName="Lucida Grande" fontHeight="11" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_c2k4ML-WEeCXSLIizrgdww" source="ShadowFigure">
@@ -109,7 +109,7 @@
     </eAnnotations>
     <children xmi:type="notation:DecorationNode" xmi:id="_g3_0Vr-YEeCXSLIizrgdww" type="1084"/>
     <element xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Dependency"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g3_0V7-YEeCXSLIizrgdww" x="556" y="104"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g3_0V7-YEeCXSLIizrgdww" x="652" y="104"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_jV9rkL-YEeCXSLIizrgdww" type="1026" fontName="Lucida Grande" fontHeight="11" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jV-SoL-YEeCXSLIizrgdww" source="ShadowFigure">
@@ -133,7 +133,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jV-5t7-YEeCXSLIizrgdww"/>
     </children>
     <element xmi:type="uml:Stereotype" href="zca.profile.uml#_jV72YL-YEeCXSLIizrgdww"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jV9rkb-YEeCXSLIizrgdww" x="556" y="268"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jV9rkb-YEeCXSLIizrgdww" x="660" y="264"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_gTe5Yb-VEeCXSLIizrgdww"/>
   <element xmi:type="uml:Profile" href="zca.profile.uml#_gTeSUL-VEeCXSLIizrgdww"/>

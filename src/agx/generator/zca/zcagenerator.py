@@ -33,6 +33,7 @@ from node.ext.zcml import ZCMLNode
 from node.ext.zcml import ZCMLFile
 from node.ext.zcml import SimpleDirective
 from node.ext.zcml import ComplexDirective
+from node.ext.uml.utils import TaggedValues, UNSET
 
 from agx.generator.pyegg.utils import (
     templatepath,
@@ -147,8 +148,17 @@ def zcarealize(self, source, target):
     targetinterface=read_target_node(source.contract,target.target)
     
     #import the interface
+    tgv = TaggedValues(source.contract)
+    import_from = tgv.direct('import', 'pyegg:stub')
     imp = Imports(targetclass.__parent__)
-    imp.set(base_name(targetinterface), [[targetinterface.classname, None]])
+    
+    if import_from is not UNSET: #we have a stib interface
+        basepath=import_from
+        imp.set(basepath, [[source.contract.name, None]])
+    else:
+        basepath=base_name(targetinterface)
+        imp.set(basepath, [[targetinterface.classname, None]])
+        
 
 
 @handler('zcarealize_finalize', 'uml2fs','zcagenerator','pyclass')
