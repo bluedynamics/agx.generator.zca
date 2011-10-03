@@ -45,7 +45,6 @@ registerScope('zcainterface', 'uml2fs', [IInterface], Scope)
 registerScope('zcarealize', 'uml2fs', [IInterfaceRealization], Scope)
 registerScope('zcaadapts', 'uml2fs', None, AdaptsScope)
 
-#@handler('zcainterface', 'uml2fs', 'zcagenerator', 'zcainterface')
 @handler('zcainterface', 'uml2fs', 'hierarchygenerator', 'zcainterface')
 def zcainterface(self, source, target):
     """Create zope interface.
@@ -129,7 +128,8 @@ def zcaadapts(self, source, target):
         
     _for=dotted_path(source.supplier)
     factory=dotted_path(source.client)
-    name='%s_adapts_%s' %(factory,_for)
+    tgv = TaggedValues(source.client)
+    name = tgv.direct('name', 'zca:adapter')
     
     found_adapts=zcml.filter(tag='adapter',attr='name',value=name)
     
@@ -137,9 +137,12 @@ def zcaadapts(self, source, target):
         adapts=found_adapts[0]
     else:     
         adapts = SimpleDirective(name='adapter', parent=zcml)
-        
+    
+
     adapts.attrs['for'] = _for
-    adapts.attrs['name'] = name
+    if not name is UNSET:
+        adapts.attrs['name'] = name
+        
     adapts.attrs['factory'] = factory
 
 @handler('zcarealize', 'uml2fs','semanticsgenerator','zcarealize')
