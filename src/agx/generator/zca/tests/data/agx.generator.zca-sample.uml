@@ -7,7 +7,10 @@
     <packagedElement xmi:type="uml:Package" xmi:id="_zv05oMDPEeCxefAFv8S0xQ" name="agx.testpackage">
       <packagedElement xmi:type="uml:Package" xmi:id="_sRpv0O3dEeCxzZhzsDsiXw" name="interfaces">
         <packagedElement xmi:type="uml:Interface" xmi:id="_OvV_8L9jEeChV7DRlkTX8Q" name="ISomeInterface"/>
-        <packagedElement xmi:type="uml:Interface" xmi:id="_qe5QML9jEeChV7DRlkTX8Q" name="IAdapted"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_qe5QML9jEeChV7DRlkTX8Q" name="IAdapted">
+          <generalization xmi:id="_LXIrAO3nEeCvpoSe_joWQA" general="_EYYJIO3nEeCvpoSe_joWQA"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_EYYJIO3nEeCvpoSe_joWQA" name="ISomeBaseInterface"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_IhMuwO3eEeCxzZhzsDsiXw" name="adapters">
         <packagedElement xmi:type="uml:Class" xmi:id="_cGeZIL9jEeChV7DRlkTX8Q" name="ClassAdapter" clientDependency="_aDt8wL-bEeCXSLIizrgdww _YDKmgOzbEeCd3tEJgk_ubQ">

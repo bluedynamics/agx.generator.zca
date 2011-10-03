@@ -23,6 +23,12 @@ from node.ext.python.nodes import (
     Block,
 )
 
+from node.ext.uml.utils import (
+    Inheritance,
+    TaggedValues,
+    UNSET,
+)
+
 from agx.generator.zca.scope import (
     UtilityScope,
     AdapterScope,
@@ -45,7 +51,36 @@ registerScope('zcainterface', 'uml2fs', [IInterface], Scope)
 registerScope('zcarealize', 'uml2fs', [IInterfaceRealization], Scope)
 registerScope('zcaadapts', 'uml2fs', None, AdaptsScope)
 
-@handler('zcainterface', 'uml2fs', 'hierarchygenerator', 'zcainterface')
+@handler('interfacegeneralization', 'uml2fs', 'connectorgenerator', 'zcainterface',order=10)
+def interfacegeneralization(self, source, target):
+    """Create generalization.
+    """
+
+#    import pdb;pdb.set_trace()
+    inheritance = Inheritance(source)
+    targetclass = read_target_node(source, target.target)
+    for obj in inheritance.values():
+        if not obj.context.name in targetclass.bases:
+            targetclass.bases.append(obj.context.name)
+            tgv = TaggedValues(obj.context)
+            import_from = tgv.direct('import', 'pyegg:stub')
+            if import_from is not UNSET:
+                imp = Imports(targetclass.__parent__)
+                imp.set(import_from, [[obj.context.name, None]])
+        derive_from = read_target_node(obj.context, target.target)
+        if not derive_from:
+            continue
+        if targetclass.__parent__ is not derive_from.__parent__:
+            imp = Imports(targetclass.__parent__)
+            imp.set(base_name(derive_from), [[derive_from.classname, None]])
+
+            
+    if targetclass and not targetclass.bases:
+#        import pdb;pdb.set_trace()
+        targetclass.bases.append('Interface')
+    
+
+@handler('zcainterface', 'uml2fs', 'hierarchygenerator', 'zcainterface', order=20)
 def zcainterface(self, source, target):
     """Create zope interface.
     """
@@ -60,15 +95,15 @@ def zcainterface(self, source, target):
     set_copyright(source, module)
     if module.classes(name):
         class_ = module.classes(name)[0]
-        if 'Interface' not in class_.bases:
-            class_.bases.append('Interface')
-        target.finalize(source, class_)
-        return
-    class_ = python.Class(name)
-    module[name] = class_
+    else:
+        class_ = python.Class(name)
+        module[name] = class_
 
+#    if not class_.bases:
+#        class_.bases.append('Interface')
 
     target.finalize(source, class_)
+
 
 registerScope('zcautility', 'uml2fs', None, UtilityScope)
 
