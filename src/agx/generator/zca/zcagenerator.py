@@ -113,10 +113,15 @@ def zcaadapter_zcml(self, source, target):
 
 @handler('zcaadapts', 'uml2fs','zcagenerator','zcaadapts')
 def zcaadapts(self, source, target):
-#    import pdb;pdb.set_trace()
     tok=token(str(source.client.uuid),True)
     pack=source.parent
-    targetdir=read_target_node(pack, target.target)
+    
+    target=read_target_node(pack, target.target)
+    if isinstance(target, python.Module):
+        targetdir = target.parent
+    else:
+        targetdir = target
+    
     path=targetdir.path
     path.append('adapters.zcml')
     fullpath=os.path.join(*path)
