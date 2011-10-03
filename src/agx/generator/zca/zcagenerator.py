@@ -131,7 +131,7 @@ def zcaadapts(self, source, target):
     tgv = TaggedValues(source.client)
     name = tgv.direct('name', 'zca:adapter')
     
-    found_adapts=zcml.filter(tag='adapter',attr='name',value=name)
+    found_adapts=zcml.filter(tag='adapter',attr='factory',value=factory)
     
     if found_adapts:
         adapts=found_adapts[0]
