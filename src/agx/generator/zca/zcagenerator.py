@@ -121,8 +121,12 @@ def zcaadapts(self, source, target):
     path=targetdir.path
     path.append('adapters.zcml')
     fullpath=os.path.join(*path)
-    zcml=ZCMLFile(fullpath)
-    targetdir['adapters.zcml']=zcml
+    if 'adapters.zcml' not in targetdir.keys():
+        zcml=ZCMLFile(fullpath)
+        targetdir['adapters.zcml']=zcml
+    else:
+        zcml=targetdir['adapters.zcml']
+        
     _for=dotted_path(source.supplier)
     factory=dotted_path(source.client)
     name='%s_adapts_%s' %(factory,_for)

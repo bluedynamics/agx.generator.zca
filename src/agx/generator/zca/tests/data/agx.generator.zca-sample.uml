@@ -47,4 +47,5 @@
   <zca:adapts xmi:id="_1qkwQMDpEeCXSLIizrgdww" base_Dependency="_aDt8wL-bEeCXSLIizrgdww"/>
   <pyegg:stub xmi:id="_cB_S0O2nEeCy9aGswL0b6Q" import="agx.somewhere_else.interfaces" base_Interface="_UHjL0O2nEeCy9aGswL0b6Q"/>
   <pyegg:pyegg xmi:id="_pcUxAO2nEeCy9aGswL0b6Q" base_Package="_zv05oMDPEeCxefAFv8S0xQ"/>
+  <zca:adapts xmi:id="_6eULAO2qEeCy9aGswL0b6Q" base_Dependency="_L4McwL-cEeCXSLIizrgdww"/>
 </xmi:XMI>

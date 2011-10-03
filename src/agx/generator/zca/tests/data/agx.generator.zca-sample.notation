@@ -121,7 +121,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qe_9679jEeChV7DRlkTX8Q"/>
     </children>
     <element xmi:type="uml:Interface" href="agx.generator.zca-sample.uml#_qe5QML9jEeChV7DRlkTX8Q"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qe-vwb9jEeChV7DRlkTX8Q" x="648" y="216"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qe-vwb9jEeChV7DRlkTX8Q" x="740" y="208"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_skGpML9jEeChV7DRlkTX8Q" type="2008" fontName="Lucida Grande" fontHeight="11" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_skHQQL9jEeChV7DRlkTX8Q" source="ShadowFigure">
@@ -322,11 +322,11 @@
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_L4RVQL-cEeCXSLIizrgdww" type="4008" source="_skGpML9jEeChV7DRlkTX8Q" target="_qe-vwL9jEeChV7DRlkTX8Q" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NfYdAL-cEeCXSLIizrgdww" source="Stereotype_Annotation">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NfYdAb-cEeCXSLIizrgdww" key="StereotypeWithQualifiedNameList" value=""/>
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NfYdAr-cEeCXSLIizrgdww" key="StereotypeList" value="zca::adapts"/>
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NfZEEL-cEeCXSLIizrgdww" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NfZEEb-cEeCXSLIizrgdww" key="PropStereoDisplay" value=""/>
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NfZEEr-cEeCXSLIizrgdww" key="StereotypePropertyLocation" value="Compartment"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6e_gcO2qEeCy9aGswL0b6Q" key="StereotypeWithQualifiedNameList" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6e_gce2qEeCy9aGswL0b6Q" key="StereotypeList" value="zca::adapts,zca::adapts"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6e_gcu2qEeCy9aGswL0b6Q" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6e_gc-2qEeCy9aGswL0b6Q" key="PropStereoDisplay" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6fAHgO2qEeCy9aGswL0b6Q" key="StereotypePropertyLocation" value="Compartment"/>
     </eAnnotations>
     <children xmi:type="notation:DecorationNode" xmi:id="_L4SjYL-cEeCXSLIizrgdww" type="6026">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_L4SjYb-cEeCXSLIizrgdww" y="10"/>
