@@ -12,6 +12,10 @@
     </eAnnotations>
     <children xmi:type="notation:DecorationNode" xmi:id="_ngNl0r-VEeCXSLIizrgdww" type="1034"/>
     <children xmi:type="notation:BasicCompartment" xmi:id="_ngNl07-VEeCXSLIizrgdww" type="1071">
+      <children xmi:type="notation:Shape" xmi:id="_jRfTgO20EeCT_tl2V_gKvw" type="3002" fontName="Ubuntu" fontHeight="10" lineColor="0">
+        <element xmi:type="uml:Property" href="zca.profile.uml#_jRcQMO20EeCT_tl2V_gKvw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jRfTge20EeCT_tl2V_gKvw"/>
+      </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_ngNl1L-VEeCXSLIizrgdww"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_ngNl1b-VEeCXSLIizrgdww"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ngNl1r-VEeCXSLIizrgdww"/>
@@ -78,6 +82,10 @@
     </eAnnotations>
     <children xmi:type="notation:DecorationNode" xmi:id="_Gc2LMr-YEeCXSLIizrgdww" type="1034"/>
     <children xmi:type="notation:BasicCompartment" xmi:id="_Gc2LM7-YEeCXSLIizrgdww" type="1071">
+      <children xmi:type="notation:Shape" xmi:id="_kLyYkO20EeCT_tl2V_gKvw" type="3002" fontName="Ubuntu" fontHeight="10" lineColor="0">
+        <element xmi:type="uml:Property" href="zca.profile.uml#_kLvVQO20EeCT_tl2V_gKvw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_kLyYke20EeCT_tl2V_gKvw"/>
+      </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_Gc2LNL-YEeCXSLIizrgdww"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Gc2LNb-YEeCXSLIizrgdww"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Gc2LNr-YEeCXSLIizrgdww"/>
@@ -123,6 +131,10 @@
     </eAnnotations>
     <children xmi:type="notation:DecorationNode" xmi:id="_jV-Spr-YEeCXSLIizrgdww" type="1034"/>
     <children xmi:type="notation:BasicCompartment" xmi:id="_jV-5sL-YEeCXSLIizrgdww" type="1071">
+      <children xmi:type="notation:Shape" xmi:id="_lIWugO20EeCT_tl2V_gKvw" type="3002" fontName="Ubuntu" fontHeight="10" lineColor="0">
+        <element xmi:type="uml:Property" href="zca.profile.uml#_lITrMO20EeCT_tl2V_gKvw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_lIWuge20EeCT_tl2V_gKvw"/>
+      </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_jV-5sb-YEeCXSLIizrgdww"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_jV-5sr-YEeCXSLIizrgdww"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jV-5s7-YEeCXSLIizrgdww"/>
