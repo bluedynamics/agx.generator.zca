@@ -15,6 +15,12 @@
     depends="semanticsgenerator"
     description="Generator for code sematics."
   />
-  <!-- semanticsgenerator -->
+
+  <agx:generator
+    name="zcasemanticsgenerator"
+    transform="uml2fs"
+    depends="zcagenerator"
+    description="Generator for zca code sematics."
+  />
 
 </configure>
