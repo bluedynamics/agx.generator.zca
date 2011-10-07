@@ -9,7 +9,7 @@ from agx.core import (
     token
 )
 from agx.core.util import read_target_node, dotted_path
-from agx.generator.pyegg.connectors import base_name
+from agx.generator.pyegg.utils import class_base_name
 
 from node.ext.python.utils import Imports
 from node.ext.uml.interfaces import IInterface, IInterfaceRealization, IDependency
@@ -53,7 +53,8 @@ registerScope('zcainterface', 'uml2fs', [IInterface], Scope)
 registerScope('zcarealize', 'uml2fs', [IInterfaceRealization], Scope)
 registerScope('zcaadapts', 'uml2fs', None, AdaptsScope)
 
-@handler('interfacegeneralization', 'uml2fs', 'connectorgenerator', 'zcainterface', order=10)
+@handler('interfacegeneralization', 'uml2fs', 'connectorgenerator', 
+         'zcainterface', order=10)
 def interfacegeneralization(self, source, target):
     """Create generalization.
     """
@@ -73,14 +74,16 @@ def interfacegeneralization(self, source, target):
             continue
         if targetclass.__parent__ is not derive_from.__parent__:
             imp = Imports(targetclass.__parent__)
-            imp.set(base_name(derive_from), [[derive_from.classname, None]])
+            imp.set(class_base_name(derive_from),
+                    [[derive_from.classname, None]])
 
             
     if targetclass and not targetclass.bases:
         targetclass.bases.append('Interface')
     
 
-@handler('zcainterface', 'uml2fs', 'hierarchygenerator', 'zcainterface', order=20)
+@handler('zcainterface', 'uml2fs', 'hierarchygenerator', 
+         'zcainterface', order=20)
 def zcainterface(self, source, target):
     """Create zope interface.
     """
@@ -146,7 +149,7 @@ def zcaadapter_zcml(self, source, target):
     #print 'zcaadapter'
     #print source, target
 
-@handler('zcaadapts', 'uml2fs', 'zcagenerator', 'zcaadapts', 10)
+@handler('zcaadapts', 'uml2fs', 'zcagenerator', 'zcaadapts', order=10)
 def zcaadapts(self, source, target):
     tok = token(str(source.client.uuid), True)
     pack = source.parent
@@ -205,7 +208,7 @@ def zcarealize(self, source, target):
         basepath = import_from
         imp.set(basepath, [[source.contract.name, None]])
     else:
-        basepath = base_name(targetinterface)
+        basepath = class_base_name(targetinterface)
         imp.set(basepath, [[targetinterface.classname, None]])
         
 
