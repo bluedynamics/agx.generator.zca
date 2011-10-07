@@ -56,7 +56,7 @@ registerScope('zcaadapts', 'uml2fs', None, AdaptsScope)
 @handler('interfacegeneralization', 'uml2fs', 'connectorgenerator', 
          'zcainterface', order=10)
 def interfacegeneralization(self, source, target):
-    """Create generalization.
+    """Create generalization between interfaces .
     """
 
     inheritance = Inheritance(source)
@@ -94,7 +94,6 @@ def zcainterface(self, source, target):
     imp = Imports(module)
     imp.set('zope.interface', [['Interface', None]])
 
-    
     set_copyright(source, module)
     if module.classes(name):
         class_ = module.classes(name)[0]
@@ -223,7 +222,10 @@ def zcarealize_finalize(self, source, target):
         targetclass = read_target_node(klass, target.target)
         imptext = 'implements(%s)' % ','.join(ifacenames)
         docstrings = targetclass.filteredvalues(IDocstring)
-
+        
+        module=targetclass.__parent__
+        imp = Imports(module)
+        imp.set('zope.interface', [['implements', None]])
         #delete all implements stmts
         try:
             blocks = targetclass.filteredvalues(IBlock)
