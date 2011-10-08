@@ -150,14 +150,33 @@ def zcaadapter_zcml(self, source, target):
 #    import pdb;pdb.set_trace()
     #print 'zcaadapter'
     #print source, target
+    
+@handler('zcaadaptscollect', 'uml2fs', 'connectorgenerator', 'zcaadapts', order=10)
+def zcaadaptscollect(self, source, target):
+    pack = source.parent
+    adaptee=source.supplier
+    adapter=source.client
+    target = read_target_node(pack, target.target)
+    targetclass = read_target_node(source.client, target)
+    tok = token(str(adapter.uuid), True, adapts=[])
 
-@handler('zcaadapts', 'uml2fs', 'zcagenerator', 'zcaadapts', order=10)
+    if isinstance(target, python.Module):
+        targetdir = target.parent
+    else:
+        targetdir = target
+        
+#    print 'adaptcollect:',adaptee.name
+    tok.adapts.append(adaptee)
+
+
+@handler('zcaadapts', 'uml2fs', 'zcagenerator', 'zcaadapter', order=20)
 def zcaadapts(self, source, target):
-    tok = token(str(source.client.uuid), True)
+    adapter=source
+    tok = token(str(adapter.uuid), True)
     pack = source.parent
     
     target = read_target_node(pack, target.target)
-    targetclass = read_target_node(source.client, target)
+    targetclass = read_target_node(adapter, target)
     if isinstance(target, python.Module):
         targetdir = target.parent
     else:
@@ -173,9 +192,9 @@ def zcaadapts(self, source, target):
         zcml = targetdir['adapters.zcml']
     addZcmlRef(targetdir, zcml)
     targettok = token(str(targetclass.uuid), True, realizes=[], provides=None)
-    _for = dotted_path(source.supplier)
-    factory = dotted_path(source.client)
-    tgv = TaggedValues(source.client)
+    _for = '\n'.join([dotted_path(adaptee) for adaptee in tok.adapts])
+    factory = dotted_path(adapter)
+    tgv = TaggedValues(adapter)
     name = tgv.direct('name', 'zca:adapter')
     found_adapts = zcml.filter(tag='adapter', attr='factory', value=factory)
     if found_adapts:
@@ -186,6 +205,8 @@ def zcaadapts(self, source, target):
     if not name is UNSET:
         adapts.attrs['name'] = name
     adapts.attrs['factory'] = factory
+    
+    #write the provides which is collected in the zcarealize handler
     if len(targettok.realizes) == 1:
         provides = targettok.realizes[0]
     else:
@@ -208,7 +229,7 @@ def zcarealize(self, source, target):
         ifdef['path'] = '.'.join([TaggedValues(source.contract).direct('import', 'pyegg:stub'), ifdef['name']])
 
     tok.realizes.append(ifdef)
-    
+#    print 'zcarealize:',klass.name,source.contract.name
     if source.stereotype('zca:provides'):
         tok.provides = ifdef
     
@@ -236,10 +257,12 @@ def zcarealize(self, source, target):
 def zcarealize_finalize(self, source, target):
 #   get the collected realizes 
     klass = source
+#    print 'zcarealize_finalize:',klass.name
     try:
         tok = token(str(klass.uuid), False)
-        ifacenames = [r.classname for r in tok.realizes]
         targetclass = read_target_node(klass, target.target)
+        targettok=token(str(targetclass.uuid), False)
+        ifacenames = [r['name'] for r in targettok.realizes]
         imptext = 'implements(%s)' % ','.join(ifacenames)
         docstrings = targetclass.filteredvalues(IDocstring)
         

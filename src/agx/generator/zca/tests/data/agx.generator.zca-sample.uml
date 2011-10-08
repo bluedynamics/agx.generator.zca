@@ -25,6 +25,11 @@
         <packagedElement xmi:type="uml:Dependency" xmi:id="_aDt8wL-bEeCXSLIizrgdww" name="" supplier="_8iAFwL9iEeChV7DRlkTX8Q" client="_cGeZIL9jEeChV7DRlkTX8Q"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_L4McwL-cEeCXSLIizrgdww" name="" supplier="_qe5QML9jEeChV7DRlkTX8Q" client="_sj_UcL9jEeChV7DRlkTX8Q"/>
         <packagedElement xmi:type="uml:Interface" xmi:id="_qLTXkPFwEeCBgdzQOfCebg" name="ILocal"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_P0dBAPGvEeC0h7PG5eYCmw" name="TheMultiAdapter" clientDependency="_hdiXkPGvEeC0h7PG5eYCmw _mfhDsPGvEeC0h7PG5eYCmw _qEUnMPGvEeC0h7PG5eYCmw">
+          <interfaceRealization xmi:id="_qEUnMPGvEeC0h7PG5eYCmw" name="InterfaceRealization0" supplier="_UHjL0O2nEeCy9aGswL0b6Q" client="_P0dBAPGvEeC0h7PG5eYCmw" contract="_UHjL0O2nEeCy9aGswL0b6Q"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_hdiXkPGvEeC0h7PG5eYCmw" name="Dependency0" supplier="_qe5QML9jEeChV7DRlkTX8Q" client="_P0dBAPGvEeC0h7PG5eYCmw"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_mfhDsPGvEeC0h7PG5eYCmw" name="Dependency1" supplier="_8iAFwL9iEeChV7DRlkTX8Q" client="_P0dBAPGvEeC0h7PG5eYCmw"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_Z-1DQO3eEeCxzZhzsDsiXw" name="common">
         <packagedElement xmi:type="uml:Class" xmi:id="_8iAFwL9iEeChV7DRlkTX8Q" name="AdaptedClass"/>
@@ -66,4 +71,7 @@
   <pyegg:pymodule xmi:id="_KXJjwO3eEeCxzZhzsDsiXw" base_Package="_IhMuwO3eEeCxzZhzsDsiXw"/>
   <pyegg:pymodule xmi:id="_bobeUO3eEeCxzZhzsDsiXw" base_Package="_Z-1DQO3eEeCxzZhzsDsiXw"/>
   <pyegg:pymodule xmi:id="_lDJFQO3eEeCxzZhzsDsiXw" base_Package="_jYjywO3eEeCxzZhzsDsiXw"/>
+  <zca:adapter xmi:id="_VddQ4PGvEeC0h7PG5eYCmw" base_Class="_P0dBAPGvEeC0h7PG5eYCmw"/>
+  <zca:adapts xmi:id="_jWKtIPGvEeC0h7PG5eYCmw" base_Dependency="_hdiXkPGvEeC0h7PG5eYCmw"/>
+  <zca:adapts xmi:id="_oF8O8PGvEeC0h7PG5eYCmw" base_Dependency="_mfhDsPGvEeC0h7PG5eYCmw"/>
 </xmi:XMI>
