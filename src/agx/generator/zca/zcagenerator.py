@@ -61,7 +61,10 @@ def interfacegeneralization(self, source, target):
 
     inheritance = Inheritance(source)
     targetclass = read_target_node(source, target.target)
+    if targetclass:
+        tok=token(str(targetclass.uuid),True,depends_on=set())
     for obj in inheritance.values():
+        tok.depends_on.add(read_target_node(obj.context, target.target))
         if not obj.context.name in targetclass.bases:
             targetclass.bases.append(obj.context.name)
             tgv = TaggedValues(obj.context)
@@ -189,7 +192,7 @@ def zcaadapts(self, source, target):
         
     adapts.attrs['factory'] = factory
 
-@handler('zcarealize', 'uml2fs', 'semanticsgenerator', 'zcarealize')
+@handler('zcarealize', 'uml2fs', 'connectorgenerator', 'zcarealize',order=10)
 def zcarealize(self, source, target):
     klass = source.implementingClassifier
     ifacename = source.contract.name
@@ -202,13 +205,19 @@ def zcarealize(self, source, target):
     tgv = TaggedValues(source.contract)
     import_from = tgv.direct('import', 'pyegg:stub')
     imp = Imports(targetclass.__parent__)
-    
-    if import_from is not UNSET: #we have a stib interface
-        basepath = import_from
-        imp.set(basepath, [[source.contract.name, None]])
-    else:
-        basepath = class_base_name(targetinterface)
-        imp.set(basepath, [[targetinterface.classname, None]])
+
+    if targetinterface:    
+        tok=token(str(targetclass.uuid),True,depends_on=set())
+        tok.depends_on.add(targetinterface)
+
+    #if (targetinterface is None -> Stub) or targetinterface is in another module: import
+    if not targetinterface or targetclass.__parent__ is not targetinterface.__parent__:
+        if import_from is not UNSET: #we have a stub interface
+            basepath = import_from
+            imp.set(basepath, [[source.contract.name, None]])
+        else:
+            basepath = class_base_name(targetinterface)
+            imp.set(basepath, [[targetinterface.classname, None]])
         
 
 
