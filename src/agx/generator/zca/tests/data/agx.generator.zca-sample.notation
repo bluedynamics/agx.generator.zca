@@ -509,7 +509,7 @@
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LYG7YO3nEeCvpoSe_joWQA" id="(0.12,0.01904761904761905)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_W9oWkO3zEeCxzZhzsDsiXw" id="(0.7456647398843931,0.9908256880733946)"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_xBw5EPFwEeCBgdzQOfCebg" type="4003" source="_RsRsUO3gEeCxzZhzsDsiXw" target="_qMPLsPFwEeCBgdzQOfCebg" lineColor="0">
+  <edges xmi:type="notation:Connector" xmi:id="_xBw5EPFwEeCBgdzQOfCebg" type="4003" source="_PjHncO3gEeCxzZhzsDsiXw" target="_qMPLsPFwEeCBgdzQOfCebg" lineColor="0">
     <children xmi:type="notation:DecorationNode" xmi:id="_xBxgIPFwEeCBgdzQOfCebg" type="6008">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_xBxgIfFwEeCBgdzQOfCebg" y="40"/>
     </children>
@@ -519,6 +519,5 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_xBw5EfFwEeCBgdzQOfCebg" fontName="Lucida Grande" fontHeight="11"/>
     <element xmi:type="uml:InterfaceRealization" href="agx.generator.zca-sample.uml#_xBIm8PFwEeCBgdzQOfCebg"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xBw5EvFwEeCBgdzQOfCebg" points="[0, 10, -1, -100]$[0, 60, -1, -50]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xB1xkPFwEeCBgdzQOfCebg" id="(0.5419847328244275,0.9)"/>
   </edges>
 </notation:Diagram>

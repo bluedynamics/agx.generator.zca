@@ -53,7 +53,7 @@ registerScope('zcainterface', 'uml2fs', [IInterface], Scope)
 registerScope('zcarealize', 'uml2fs', [IInterfaceRealization], Scope)
 registerScope('zcaadapts', 'uml2fs', None, AdaptsScope)
 
-@handler('interfacegeneralization', 'uml2fs', 'connectorgenerator', 
+@handler('interfacegeneralization', 'uml2fs', 'connectorgenerator',
          'zcainterface', order=10)
 def interfacegeneralization(self, source, target):
     """Create generalization between interfaces .
@@ -62,7 +62,7 @@ def interfacegeneralization(self, source, target):
     inheritance = Inheritance(source)
     targetclass = read_target_node(source, target.target)
     if targetclass:
-        tok=token(str(targetclass.uuid),True,depends_on=set())
+        tok = token(str(targetclass.uuid), True, depends_on=set())
     for obj in inheritance.values():
         tok.depends_on.add(read_target_node(obj.context, target.target))
         if not obj.context.name in targetclass.bases:
@@ -85,7 +85,7 @@ def interfacegeneralization(self, source, target):
         targetclass.bases.append('Interface')
     
 
-@handler('zcainterface', 'uml2fs', 'hierarchygenerator', 
+@handler('zcainterface', 'uml2fs', 'hierarchygenerator',
          'zcainterface', order=20)
 def zcainterface(self, source, target):
     """Create zope interface.
@@ -157,6 +157,7 @@ def zcaadapts(self, source, target):
     pack = source.parent
     
     target = read_target_node(pack, target.target)
+    targetclass = read_target_node(source.client, target)
     if isinstance(target, python.Module):
         targetdir = target.parent
     else:
@@ -170,36 +171,46 @@ def zcaadapts(self, source, target):
         targetdir['adapters.zcml'] = zcml
     else:
         zcml = targetdir['adapters.zcml']
-
     addZcmlRef(targetdir, zcml)
-        
+    targettok = token(str(targetclass.uuid), True, realizes=[], provides=None)
     _for = dotted_path(source.supplier)
     factory = dotted_path(source.client)
     tgv = TaggedValues(source.client)
     name = tgv.direct('name', 'zca:adapter')
-    
     found_adapts = zcml.filter(tag='adapter', attr='factory', value=factory)
-    
     if found_adapts:
         adapts = found_adapts[0]
     else:     
         adapts = SimpleDirective(name='adapter', parent=zcml)
-    
-
     adapts.attrs['for'] = _for
     if not name is UNSET:
         adapts.attrs['name'] = name
-        
     adapts.attrs['factory'] = factory
+    if len(targettok.realizes) == 1:
+        provides = targettok.realizes[0]
+    else:
+        provides = targettok.provides
+    adapts.attrs['provides'] = provides['path']
+    
 
-@handler('zcarealize', 'uml2fs', 'connectorgenerator', 'zcarealize',order=10)
+@handler('zcarealize', 'uml2fs', 'connectorgenerator', 'zcarealize', order=10)
 def zcarealize(self, source, target):
     klass = source.implementingClassifier
     ifacename = source.contract.name
     targetclass = read_target_node(klass, target.target)
-    tok = token(str(klass.uuid), True, realizes=[])
-    tok.realizes.append(ifacename)
     targetinterface = read_target_node(source.contract, target.target)
+    tok = token(str(targetclass.uuid), True, realizes=[], provides=None)
+    
+    ifdef = {'name':source.contract.name}
+    if targetinterface:
+        ifdef['path'] = dotted_path(source.contract)
+    else: #then its a stub
+        ifdef['path'] = '.'.join([TaggedValues(source.contract).direct('import', 'pyegg:stub'), ifdef['name']])
+
+    tok.realizes.append(ifdef)
+    
+    if source.stereotype('zca:provides'):
+        tok.provides = ifdef
     
     #import the interface
     tgv = TaggedValues(source.contract)
@@ -207,7 +218,7 @@ def zcarealize(self, source, target):
     imp = Imports(targetclass.__parent__)
 
     if targetinterface:    
-        tok=token(str(targetclass.uuid),True,depends_on=set())
+        tok = token(str(targetclass.uuid), True, depends_on=set())
         tok.depends_on.add(targetinterface)
 
     #if (targetinterface is None -> Stub) or targetinterface is in another module: import
@@ -227,12 +238,12 @@ def zcarealize_finalize(self, source, target):
     klass = source
     try:
         tok = token(str(klass.uuid), False)
-        ifacenames = tok.realizes
+        ifacenames = [r.classname for r in tok.realizes]
         targetclass = read_target_node(klass, target.target)
         imptext = 'implements(%s)' % ','.join(ifacenames)
         docstrings = targetclass.filteredvalues(IDocstring)
         
-        module=targetclass.__parent__
+        module = targetclass.__parent__
         imp = Imports(module)
         imp.set('zope.interface', [['implements', None]])
         #delete all implements stmts
