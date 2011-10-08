@@ -132,10 +132,23 @@ def zcaadapterdefaultinit(self, source, target):
             exists = function
             break
     if not exists:
+        tok=token(str(adapter_class.uuid),False)
+        adapts=token(str(source.uuid),False).adapts
+        if len(adapts)==1:
+            params=['context']
+        else:
+            params=[]
+            for cl in adapts:
+                if cl.name.startswith('I'):
+                    params.append(cl.name[1:].lower())
+                else:
+                    params.append(cl.name.lower())
+            
         func = Function('__init__')
-        func.args.append('context')
+        func.args=params
         block = Block()
-        block.text = 'self.context = context'
+        for param in params:
+            block.lines.append('self.%s = %s' % (param,param))
         func[block.uuid] = block
         adapter_class[func.uuid] = func
 
@@ -157,9 +170,14 @@ def zcaadaptscollect(self, source, target):
     adaptee=source.supplier
     adapter=source.client
     target = read_target_node(pack, target.target)
-    targetclass = read_target_node(source.client, target)
+    targetadaptee = read_target_node(adaptee, target)
     tok = token(str(adapter.uuid), True, adapts=[])
-
+    adapteetok=token(str(adaptee.uuid),True,fullpath=None)
+    if targetadaptee:
+        adapteetok.fullpath=dotted_path(adaptee)
+    else: #its a stub
+        adapteetok.fullpath='.'.join([TaggedValues(adaptee).direct('import', 'pyegg:stub'),adaptee.name])
+                                      
     if isinstance(target, python.Module):
         targetdir = target.parent
     else:
@@ -192,7 +210,7 @@ def zcaadapts(self, source, target):
         zcml = targetdir['adapters.zcml']
     addZcmlRef(targetdir, zcml)
     targettok = token(str(targetclass.uuid), True, realizes=[], provides=None)
-    _for = '\n'.join([dotted_path(adaptee) for adaptee in tok.adapts])
+    _for = '\n'.join([token(str(adaptee.uuid),False).fullpath for adaptee in tok.adapts])
     factory = dotted_path(adapter)
     tgv = TaggedValues(adapter)
     name = tgv.direct('name', 'zca:adapter')
@@ -261,7 +279,13 @@ def zcarealize_finalize(self, source, target):
     try:
         tok = token(str(klass.uuid), False)
         targetclass = read_target_node(klass, target.target)
+        
+        if not targetclass: #stub
+            return
+        
         targettok=token(str(targetclass.uuid), False)
+        if not hasattr(targettok,'realizes'):
+            return #class has no interfaces
         ifacenames = [r['name'] for r in targettok.realizes]
         imptext = 'implements(%s)' % ','.join(ifacenames)
         docstrings = targetclass.filteredvalues(IDocstring)
