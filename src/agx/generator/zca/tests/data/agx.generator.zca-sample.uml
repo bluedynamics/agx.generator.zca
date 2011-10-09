@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:pyegg="http:///schemas/pyegg/_bKfm8O2jEeC8n-p9k6CYlw/14" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:zca="http:///schemas/zca/_tO-bEO3aEeCxzZhzsDsiXw/9" xsi:schemaLocation="http:///schemas/pyegg/_bKfm8O2jEeC8n-p9k6CYlw/14 ../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_bKpX8O2jEeC8n-p9k6CYlw http:///schemas/zca/_tO-bEO3aEeCxzZhzsDsiXw/9 ../../profiles/zca.profile.uml#_tPAQQO3aEeCxzZhzsDsiXw">
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:pyegg="http:///schemas/pyegg/_k6d5wO_0EeC7tul8mqamKw/16" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:zca="http:///schemas/zca/_xsPnUPJeEeC2t8q-iQDlSQ/14" xsi:schemaLocation="http:///schemas/pyegg/_k6d5wO_0EeC7tul8mqamKw/16 ../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_k6gWAO_0EeC7tul8mqamKw http:///schemas/zca/_xsPnUPJeEeC2t8q-iQDlSQ/14 ../../profiles/zca.profile.uml#_xsPnUfJeEeC2t8q-iQDlSQ">
   <uml:Model xmi:id="_6429sL9iEeChV7DRlkTX8Q" name="Model">
     <packageImport xmi:id="_6429sb9iEeChV7DRlkTX8Q">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -48,13 +48,13 @@
     </profileApplication>
     <profileApplication xmi:id="_HO13EMDQEeCxefAFv8S0xQ">
       <eAnnotations xmi:id="_HQXhEMDQEeCxefAFv8S0xQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../../profiles/zca.profile.uml#_tPAQQO3aEeCxzZhzsDsiXw"/>
+        <references xmi:type="ecore:EPackage" href="../../profiles/zca.profile.uml#_xsPnUfJeEeC2t8q-iQDlSQ"/>
       </eAnnotations>
       <appliedProfile href="../../profiles/zca.profile.uml#_gTeSUL-VEeCXSLIizrgdww"/>
     </profileApplication>
     <profileApplication xmi:id="_R8VXQO1AEeCwj9v4T1_ceQ">
       <eAnnotations xmi:id="_R9EXEO1AEeCwj9v4T1_ceQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_bKpX8O2jEeC8n-p9k6CYlw"/>
+        <references xmi:type="ecore:EPackage" href="../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_k6gWAO_0EeC7tul8mqamKw"/>
       </eAnnotations>
       <appliedProfile href="../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_HHBJsNqqEd6cif0axL0c4w"/>
     </profileApplication>

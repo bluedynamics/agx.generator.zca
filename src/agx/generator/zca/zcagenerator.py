@@ -210,7 +210,7 @@ def zcaadapts(self, source, target):
         zcml = targetdir['adapters.zcml']
     addZcmlRef(targetdir, zcml)
     targettok = token(str(targetclass.uuid), True, realizes=[], provides=None)
-    _for = '\n'.join([token(str(adaptee.uuid),False).fullpath for adaptee in tok.adapts])
+    _for = [token(str(adaptee.uuid),False).fullpath for adaptee in tok.adapts]
     factory = dotted_path(adapter)
     tgv = TaggedValues(adapter)
     name = tgv.direct('name', 'zca:adapter')
