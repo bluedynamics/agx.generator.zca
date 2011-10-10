@@ -706,4 +706,23 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HRyN8vLDEeC2t8q-iQDlSQ" points="[-12, 3, 119, -41]$[-81, 39, 50, -5]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HR0qMPLDEeC2t8q-iQDlSQ" id="(0.0916030534351145,0.38)"/>
   </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_JR1S8PLrEeC2t8q-iQDlSQ" type="4008" source="_P3_dMPGvEeC0h7PG5eYCmw" target="_yNhJ8PLCEeC2t8q-iQDlSQ" lineColor="0">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LNg8gPLrEeC2t8q-iQDlSQ" source="Stereotype_Annotation">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LNg8gfLrEeC2t8q-iQDlSQ" key="StereotypeWithQualifiedNameList" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LNg8gvLrEeC2t8q-iQDlSQ" key="StereotypeList" value="zca::permits"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LNg8g_LrEeC2t8q-iQDlSQ" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LNg8hPLrEeC2t8q-iQDlSQ" key="PropStereoDisplay" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LNg8hfLrEeC2t8q-iQDlSQ" key="StereotypePropertyLocation" value="Compartment"/>
+    </eAnnotations>
+    <children xmi:type="notation:DecorationNode" xmi:id="_JR16APLrEeC2t8q-iQDlSQ" type="6026">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_JR16AfLrEeC2t8q-iQDlSQ" y="40"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_JR16AvLrEeC2t8q-iQDlSQ" type="6027">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_JR16A_LrEeC2t8q-iQDlSQ" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_JR1S8fLrEeC2t8q-iQDlSQ" fontName="Lucida Grande" fontHeight="11"/>
+    <element xmi:type="uml:Dependency" href="agx.generator.zca-sample.uml#_JR0E0PLrEeC2t8q-iQDlSQ"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JR1S8vLrEeC2t8q-iQDlSQ" points="[-50, -3, 237, 10]$[-281, -33, 6, -20]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_JR49UPLrEeC2t8q-iQDlSQ" id="(0.6,0.2)"/>
+  </edges>
 </notation:Diagram>

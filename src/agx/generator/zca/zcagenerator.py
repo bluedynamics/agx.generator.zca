@@ -354,7 +354,13 @@ def createpermission(self, source, target):
         zcml = targetdir['configure.zcml']
     addZcmlRef(targetdir, zcml)
     
-    permid=dotted_path(source)
+    id=TaggedValues(source).direct('id', 'zca:permission')
+    
+    if id is UNSET:
+        permid=dotted_path(source)
+    else:
+        permid=id
+        
     found_directives = zcml.filter(tag='permission', attr='id', value=permid)
     if found_directives:
         directive = found_directives[0]
@@ -362,9 +368,22 @@ def createpermission(self, source, target):
         directive = SimpleDirective(name='permission', parent=zcml)
 
     directive.attrs['id']=permid
+    title=TaggedValues(source).direct('title', 'zca:permission')
+    if not title is UNSET:
+        directive.attrs['title']=title
+
+    description=TaggedValues(source).direct('description', 'zca:permission')
+    if not description is UNSET:
+        directive.attrs['description']=description
+    
     
 @handler('collectpermissions', 'uml2fs', 'connectorgenerator', 'zcapermits')
 def collectpermissions(self, source, target):
-    perm=dotted_path(source.supplier)
-    tok=token(str(source.client.uuid),True,permission=perm)
+    permid=dotted_path(source.supplier)
+    id=TaggedValues(source.supplier).direct('id', 'zca:permission')
+    
+    if not id is UNSET:
+        permid=id
+
+    tok=token(str(source.client.uuid),True,permission=permid)
     

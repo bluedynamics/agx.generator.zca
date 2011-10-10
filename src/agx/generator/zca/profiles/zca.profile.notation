@@ -26,7 +26,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ngNl2r-VEeCXSLIizrgdww"/>
     </children>
     <element xmi:type="uml:Stereotype" href="zca.profile.uml#_ngKigL-VEeCXSLIizrgdww"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ngMXsb-VEeCXSLIizrgdww" x="68" y="216"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ngMXsb-VEeCXSLIizrgdww" x="100" y="216"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_YjIGAL-WEeCXSLIizrgdww" type="1031" fontName="Lucida Grande" fontHeight="11" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YjJUIL-WEeCXSLIizrgdww" source="ShadowFigure">
@@ -47,7 +47,7 @@
     </eAnnotations>
     <children xmi:type="notation:DecorationNode" xmi:id="_YjKiQr-WEeCXSLIizrgdww" type="1084"/>
     <element xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YjKiQ7-WEeCXSLIizrgdww" x="80" y="56"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YjKiQ7-WEeCXSLIizrgdww" x="112" y="56"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_c2kRIL-WEeCXSLIizrgdww" type="1031" fontName="Lucida Grande" fontHeight="11" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_c2k4ML-WEeCXSLIizrgdww" source="ShadowFigure">
@@ -68,7 +68,7 @@
     </eAnnotations>
     <children xmi:type="notation:DecorationNode" xmi:id="_c2lfQr-WEeCXSLIizrgdww" type="1084"/>
     <element xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Interface"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_c2lfQ7-WEeCXSLIizrgdww" x="256" y="52"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_c2lfQ7-WEeCXSLIizrgdww" x="288" y="52"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_Gc09EL-YEeCXSLIizrgdww" type="1026" fontName="Lucida Grande" fontHeight="11" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Gc1kIL-YEeCXSLIizrgdww" source="ShadowFigure">
@@ -96,7 +96,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Gc2LOr-YEeCXSLIizrgdww"/>
     </children>
     <element xmi:type="uml:Stereotype" href="zca.profile.uml#_Gczu8L-YEeCXSLIizrgdww"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Gc09Eb-YEeCXSLIizrgdww" x="252" y="216"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Gc09Eb-YEeCXSLIizrgdww" x="284" y="216"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_g3_NQL-YEeCXSLIizrgdww" type="1031" fontName="Lucida Grande" fontHeight="11" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_g3_0UL-YEeCXSLIizrgdww" source="ShadowFigure">
@@ -230,6 +230,18 @@
     </eAnnotations>
     <children xmi:type="notation:DecorationNode" xmi:id="_T2riRvJdEeC2t8q-iQDlSQ" type="1034"/>
     <children xmi:type="notation:BasicCompartment" xmi:id="_T2sJUPJdEeC2t8q-iQDlSQ" type="1071">
+      <children xmi:type="notation:Shape" xmi:id="_Dz0Z0PLlEeC2t8q-iQDlSQ" type="3002" fontName="Lucida Grande" fontHeight="11" lineColor="0">
+        <element xmi:type="uml:Property" href="zca.profile.uml#_DuB64PLlEeC2t8q-iQDlSQ"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Dz0Z0fLlEeC2t8q-iQDlSQ"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_JSRxIPLmEeC2t8q-iQDlSQ" type="3002" fontName="Lucida Grande" fontHeight="11" lineColor="0">
+        <element xmi:type="uml:Property" href="zca.profile.uml#_JSP78PLmEeC2t8q-iQDlSQ"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_JSRxIfLmEeC2t8q-iQDlSQ"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_6AyHkPLmEeC2t8q-iQDlSQ" type="3002" fontName="Lucida Grande" fontHeight="11" lineColor="0">
+        <element xmi:type="uml:Property" href="zca.profile.uml#_6AwSYPLmEeC2t8q-iQDlSQ"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_6AyHkfLmEeC2t8q-iQDlSQ"/>
+      </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_T2sJUfJdEeC2t8q-iQDlSQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_T2sJUvJdEeC2t8q-iQDlSQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_T2sJU_JdEeC2t8q-iQDlSQ"/>
