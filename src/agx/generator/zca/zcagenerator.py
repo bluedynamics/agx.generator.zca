@@ -234,7 +234,9 @@ def zcaadapts(self, source, target):
     else:
         provides = targettok.provides
     adapts.attrs['provides'] = provides['path']
-    
+    if hasattr(tok,'permission'):
+        adapts.attrs['permission']=tok.permission
+        
 
 @handler('zcarealize', 'uml2fs', 'connectorgenerator', 'zcarealize', order=10)
 def zcarealize(self, source, target):
@@ -330,7 +332,7 @@ def createpermission(self, source, target):
 
     path=class_base_name(targetclass)
     
-    #prefent python class from being generated
+    #prevent python class from being generated
     sts=[st.name for st in source.stereotypes]
     if 'zca:permission' in sts and len(sts)==1: #only if no other steroetypes are attached
         #class also has to be deleted from __init__
@@ -360,3 +362,9 @@ def createpermission(self, source, target):
         directive = SimpleDirective(name='permission', parent=zcml)
 
     directive.attrs['id']=permid
+    
+@handler('collectpermissions', 'uml2fs', 'connectorgenerator', 'zcapermits')
+def collectpermissions(self, source, target):
+    perm=dotted_path(source.supplier)
+    tok=token(str(source.client.uuid),True,permission=perm)
+    
