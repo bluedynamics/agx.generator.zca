@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_gTeSUL-VEeCXSLIizrgdww" name="zca" metaclassReference="_YjAxQL-WEeCXSLIizrgdww _c2h04L-WEeCXSLIizrgdww _g38xAL-YEeCXSLIizrgdww _fczEoO3aEeCxzZhzsDsiXw" metamodelReference="_gTeSUb-VEeCXSLIizrgdww">
   <eAnnotations xmi:id="_O2wccL-YEeCXSLIizrgdww" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_brAJ0fLDEeC2t8q-iQDlSQ" name="zca" nsURI="http:///schemas/zca/_brAJ0PLDEeC2t8q-iQDlSQ/16" nsPrefix="zca">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_brAJ0vLDEeC2t8q-iQDlSQ" name="adapter">
+        <eAnnotations xmi:id="_brAJ0_LDEeC2t8q-iQDlSQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ngKigL-VEeCXSLIizrgdww"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_brAJ1PLDEeC2t8q-iQDlSQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_brAJ1vLDEeC2t8q-iQDlSQ" name="base_Interface" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Interface"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_brAJ2PLDEeC2t8q-iQDlSQ" name="name" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_brAJ2vLDEeC2t8q-iQDlSQ" name="utility">
+        <eAnnotations xmi:id="_brAJ2_LDEeC2t8q-iQDlSQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Gczu8L-YEeCXSLIizrgdww"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_brAJ3PLDEeC2t8q-iQDlSQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_brAJ3vLDEeC2t8q-iQDlSQ" name="base_Interface" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Interface"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_brAJ4PLDEeC2t8q-iQDlSQ" name="name" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_brAJ4vLDEeC2t8q-iQDlSQ" name="adapts">
+        <eAnnotations xmi:id="_brAJ4_LDEeC2t8q-iQDlSQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_jV72YL-YEeCXSLIizrgdww"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_brAJ5PLDEeC2t8q-iQDlSQ" name="base_Dependency" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_brAJ5vLDEeC2t8q-iQDlSQ" name="order" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_brAJ6PLDEeC2t8q-iQDlSQ" name="provides">
+        <eAnnotations xmi:id="_brAJ6fLDEeC2t8q-iQDlSQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gr8YUO3aEeCxzZhzsDsiXw"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_brAJ6vLDEeC2t8q-iQDlSQ" name="base_InterfaceRealization" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//InterfaceRealization"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_brAJ7PLDEeC2t8q-iQDlSQ" name="zcml">
+        <eAnnotations xmi:id="_brAJ7fLDEeC2t8q-iQDlSQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_OZzy4O-JEeCvpoSe_joWQA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_brAJ7vLDEeC2t8q-iQDlSQ" name="base_InterfaceRealization" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//InterfaceRealization"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_brAJ8PLDEeC2t8q-iQDlSQ" name="permission">
+        <eAnnotations xmi:id="_brAJ8fLDEeC2t8q-iQDlSQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_T2n34PJdEeC2t8q-iQDlSQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_brAJ8vLDEeC2t8q-iQDlSQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_brAJ9PLDEeC2t8q-iQDlSQ" name="permits">
+        <eAnnotations xmi:id="_brAJ9fLDEeC2t8q-iQDlSQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_loWlYPJjEeC2t8q-iQDlSQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_brAJ9vLDEeC2t8q-iQDlSQ" name="base_Dependency" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
     <contents xmi:type="ecore:EPackage" xmi:id="_sVcIcPJjEeC2t8q-iQDlSQ" name="zca" nsURI="http:///schemas/zca/_sVbhYPJjEeC2t8q-iQDlSQ/15" nsPrefix="zca">
       <eAnnotations xmi:id="_sVkrUPJjEeC2t8q-iQDlSQ" source="PapyrusVersion">
         <details xmi:id="_sVkrUfJjEeC2t8q-iQDlSQ" key="Version" value="0.0.1"/>

@@ -17,7 +17,7 @@ from node.ext.python.interfaces import IBlock, IDocstring
 
 
 from node.ext import python
-from node.ext.python.interfaces import IFunction
+from node.ext.python.interfaces import IFunction,IModule
 from node.ext.python.nodes import (
     Function,
     Block,
@@ -33,6 +33,8 @@ from agx.generator.zca.scope import (
     UtilityScope,
     AdapterScope,
     AdaptsScope,
+    PermitsScope,
+    PermissionScope,
 )
 
 from agx.generator.zca.utils import addZcmlRef
@@ -52,6 +54,8 @@ from agx.generator.pyegg.utils import (
 registerScope('zcainterface', 'uml2fs', [IInterface], Scope)
 registerScope('zcarealize', 'uml2fs', [IInterfaceRealization], Scope)
 registerScope('zcaadapts', 'uml2fs', None, AdaptsScope)
+registerScope('zcapermits', 'uml2fs', None, PermitsScope)
+registerScope('zcapermission', 'uml2fs', None, PermissionScope)
 
 @handler('interfacegeneralization', 'uml2fs', 'connectorgenerator',
          'zcainterface', order=10)
@@ -317,4 +321,42 @@ def zcarealize_finalize(self, source, target):
         #keine realize parents vorhanden
         pass
     
+@handler('createpermission', 'uml2fs', 'connectorgenerator', 'zcapermission')
+def createpermission(self, source, target):
+    
+    targetclass=read_target_node(source, target.target)
+    module=targetclass.parent
+    targetdir=module.parent
 
+    path=class_base_name(targetclass)
+    
+    #prefent python class from being generated
+    sts=[st.name for st in source.stereotypes]
+    if 'zca:permission' in sts and len(sts)==1: #only if no other steroetypes are attached
+        #class also has to be deleted from __init__
+        init=targetdir['__init__.py']
+        for imp in init.imports():
+            if imp.fromimport==path and imp.names[0][0]==source.name:
+                del init[imp.__name__]
+        del module[targetclass.__name__]
+
+    #and now write the permission definition into confure.zcml
+    zcmlpath = targetdir.path
+    zcmlpath.append('configure.zcml')
+    fullpath = os.path.join(*zcmlpath)
+
+    if 'configure.zcml' not in targetdir.keys():
+        zcml = ZCMLFile(fullpath)
+        targetdir['configure.zcml'] = zcml
+    else:
+        zcml = targetdir['configure.zcml']
+    addZcmlRef(targetdir, zcml)
+    
+    permid=dotted_path(source)
+    found_directives = zcml.filter(tag='permission', attr='id', value=permid)
+    if found_directives:
+        directive = found_directives[0]
+    else:     
+        directive = SimpleDirective(name='permission', parent=zcml)
+
+    directive.attrs['id']=permid

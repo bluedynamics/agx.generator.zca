@@ -15,3 +15,10 @@ class AdaptsScope(Scope):
     def __call__(self, node):
         return node.stereotype('zca:adapts') is not None
     
+class PermitsScope(Scope):
+    def __call__(self,node):
+        return node.stereotype('zca:permits') is not None
+    
+class PermissionScope(Scope):
+    def __call__(self,node):
+        return node.stereotype('zca:permission') is not None

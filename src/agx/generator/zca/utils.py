@@ -31,13 +31,12 @@ def addZcmlRef(directory, zcml):
         conf = directory[confname]
 
     zcmlpath=relpath(directory,zcml)
-    
-    found_include = conf.filter(tag='include', attr='file', value=zcmlpath)
-    
-    #add include directive if necessary
-    if not found_include:
-        include = SimpleDirective(name='include', parent=conf)
-        include.attrs['file']=zcmlpath
+    if zcmlpath!='configure.zcml':
+        found_include = conf.filter(tag='include', attr='file', value=zcmlpath)
+        #add include directive if necessary
+        if not found_include:
+            include = SimpleDirective(name='include', parent=conf)
+            include.attrs['file']=zcmlpath
     
     if directory not in token('pyeggs',False).directories:
         parentdir=directory.__parent__

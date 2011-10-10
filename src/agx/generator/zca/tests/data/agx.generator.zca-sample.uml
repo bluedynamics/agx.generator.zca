@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:pyegg="http:///schemas/pyegg/_k6d5wO_0EeC7tul8mqamKw/16" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:zca="http:///schemas/zca/_xsPnUPJeEeC2t8q-iQDlSQ/14" xsi:schemaLocation="http:///schemas/pyegg/_k6d5wO_0EeC7tul8mqamKw/16 ../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_k6gWAO_0EeC7tul8mqamKw http:///schemas/zca/_xsPnUPJeEeC2t8q-iQDlSQ/14 ../../profiles/zca.profile.uml#_xsPnUfJeEeC2t8q-iQDlSQ">
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:pyegg="http:///schemas/pyegg/_k6d5wO_0EeC7tul8mqamKw/16" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:zca="http:///schemas/zca/_brAJ0PLDEeC2t8q-iQDlSQ/16" xsi:schemaLocation="http:///schemas/pyegg/_k6d5wO_0EeC7tul8mqamKw/16 ../../../../../../../agx.generator.pyegg/src/agx/generator/pyegg/profiles/pyegg.profile.uml#_k6gWAO_0EeC7tul8mqamKw http:///schemas/zca/_brAJ0PLDEeC2t8q-iQDlSQ/16 ../../profiles/zca.profile.uml#_brAJ0fLDEeC2t8q-iQDlSQ">
   <uml:Model xmi:id="_6429sL9iEeChV7DRlkTX8Q" name="Model">
     <packageImport xmi:id="_6429sb9iEeChV7DRlkTX8Q">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -13,7 +13,7 @@
         <packagedElement xmi:type="uml:Interface" xmi:id="_EYYJIO3nEeCvpoSe_joWQA" name="ISomeBaseInterface"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_IhMuwO3eEeCxzZhzsDsiXw" name="adapters">
-        <packagedElement xmi:type="uml:Class" xmi:id="_cGeZIL9jEeChV7DRlkTX8Q" name="ClassAdapter" clientDependency="_aDt8wL-bEeCXSLIizrgdww _YDKmgOzbEeCd3tEJgk_ubQ _xBIm8PFwEeCBgdzQOfCebg">
+        <packagedElement xmi:type="uml:Class" xmi:id="_cGeZIL9jEeChV7DRlkTX8Q" name="ClassAdapter" clientDependency="_aDt8wL-bEeCXSLIizrgdww _YDKmgOzbEeCd3tEJgk_ubQ _xBIm8PFwEeCBgdzQOfCebg _HRwYwPLDEeC2t8q-iQDlSQ">
           <generalization xmi:id="_xUE-YO0NEeCd3tEJgk_ubQ" general="_F4dd4O0NEeCd3tEJgk_ubQ"/>
           <interfaceRealization xmi:id="_YDKmgOzbEeCd3tEJgk_ubQ" name="" supplier="_OvV_8L9jEeChV7DRlkTX8Q" client="_cGeZIL9jEeChV7DRlkTX8Q" contract="_OvV_8L9jEeChV7DRlkTX8Q"/>
         </packagedElement>
@@ -30,6 +30,7 @@
         </packagedElement>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_hdiXkPGvEeC0h7PG5eYCmw" name="Dependency0" supplier="_qe5QML9jEeChV7DRlkTX8Q" client="_P0dBAPGvEeC0h7PG5eYCmw"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_mfhDsPGvEeC0h7PG5eYCmw" name="Dependency1" supplier="_8iAFwL9iEeChV7DRlkTX8Q" client="_P0dBAPGvEeC0h7PG5eYCmw"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_HRwYwPLDEeC2t8q-iQDlSQ" name="" supplier="_2XHckPLCEeC2t8q-iQDlSQ" client="_cGeZIL9jEeChV7DRlkTX8Q"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_Z-1DQO3eEeCxzZhzsDsiXw" name="common">
         <packagedElement xmi:type="uml:Class" xmi:id="_8iAFwL9iEeChV7DRlkTX8Q" name="AdaptedClass"/>
@@ -38,6 +39,8 @@
       <packagedElement xmi:type="uml:Package" xmi:id="_jYjywO3eEeCxzZhzsDsiXw" name="utilities">
         <packagedElement xmi:type="uml:Class" xmi:id="_2vkBMMDPEeCxefAFv8S0xQ" name="SomeUtility"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_yNf70PLCEeC2t8q-iQDlSQ" name="View"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_2XHckPLCEeC2t8q-iQDlSQ" name="Edit"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_UHjL0O2nEeCy9aGswL0b6Q" name="IStubInterface"/>
     <profileApplication xmi:id="_JnzfkL99EeChV7DRlkTX8Q">
@@ -48,7 +51,7 @@
     </profileApplication>
     <profileApplication xmi:id="_HO13EMDQEeCxefAFv8S0xQ">
       <eAnnotations xmi:id="_HQXhEMDQEeCxefAFv8S0xQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../../profiles/zca.profile.uml#_xsPnUfJeEeC2t8q-iQDlSQ"/>
+        <references xmi:type="ecore:EPackage" href="../../profiles/zca.profile.uml#_brAJ0fLDEeC2t8q-iQDlSQ"/>
       </eAnnotations>
       <appliedProfile href="../../profiles/zca.profile.uml#_gTeSUL-VEeCXSLIizrgdww"/>
     </profileApplication>
@@ -74,4 +77,7 @@
   <zca:adapter xmi:id="_VddQ4PGvEeC0h7PG5eYCmw" base_Class="_P0dBAPGvEeC0h7PG5eYCmw"/>
   <zca:adapts xmi:id="_jWKtIPGvEeC0h7PG5eYCmw" base_Dependency="_hdiXkPGvEeC0h7PG5eYCmw"/>
   <zca:adapts xmi:id="_oF8O8PGvEeC0h7PG5eYCmw" base_Dependency="_mfhDsPGvEeC0h7PG5eYCmw"/>
+  <zca:permission xmi:id="_1GMnQPLCEeC2t8q-iQDlSQ" base_Class="_yNf70PLCEeC2t8q-iQDlSQ"/>
+  <zca:permission xmi:id="_AESsgPLDEeC2t8q-iQDlSQ" base_Class="_2XHckPLCEeC2t8q-iQDlSQ"/>
+  <zca:permits xmi:id="_5bsLYPLDEeC2t8q-iQDlSQ" base_Dependency="_HRwYwPLDEeC2t8q-iQDlSQ"/>
 </xmi:XMI>
