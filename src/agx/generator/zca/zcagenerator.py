@@ -129,6 +129,10 @@ registerScope('zcaadapter', 'uml2fs', None, AdapterScope)
 def zcaadapterdefaultinit(self, source, target):
     """Set default __init__ function on adapter class if not present yet.
     """
+    if source.stereotype('pyegg:function'):
+        # XXX: <<function>> <<adapter>> on class
+        return
+    
     adapter_class = read_target_node(source, target.target)
     exists = False
     for function in adapter_class.filteredvalues(IFunction):
@@ -194,6 +198,11 @@ def zcaadaptscollect(self, source, target):
 @handler('zcaadapts', 'uml2fs', 'zcagenerator', 'zcaadapter', order=20)
 def zcaadapts(self, source, target):
     adapter=source
+    
+    if adapter.stereotype('pyegg:function'):
+        # XXX: <<function>> <<adapter>> on class
+        return
+    
     tok = token(str(adapter.uuid), True)
     pack = source.parent
     
@@ -241,6 +250,11 @@ def zcaadapts(self, source, target):
 @handler('zcarealize', 'uml2fs', 'connectorgenerator', 'zcarealize', order=10)
 def zcarealize(self, source, target):
     klass = source.implementingClassifier
+    
+    if klass.stereotype('pyegg:function'):
+        # XXX: <<function>> <<adapter>> on class
+        return
+    
     ifacename = source.contract.name
     targetclass = read_target_node(klass, target.target)
     targetinterface = read_target_node(source.contract, target.target)
