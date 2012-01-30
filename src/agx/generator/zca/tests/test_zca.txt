@@ -31,4 +31,4 @@ Setup configuration and emulate main routine.
     >>> controller = agx.core.Controller()
     >>> target = controller(modelpaths, outdir)
     >>> target
-    <node.ext.directory.directory.Directory object at ...>
+    <Directory object '/.../agx.generator.zca/src/agx/generator/zca/tests/data/agx.generator.zca-sample' at ...>

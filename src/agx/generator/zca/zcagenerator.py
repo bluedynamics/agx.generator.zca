@@ -1,34 +1,39 @@
 import os
-
 from zope.component.interfaces import ComponentLookupError
-
 from agx.core import (
     handler,
     Scope,
     registerScope,
     token
 )
-from agx.core.util import read_target_node, dotted_path
-from agx.generator.pyegg.utils import class_base_name
-
-from node.ext.python.utils import Imports
-from node.ext.uml.interfaces import IInterface, IInterfaceRealization, IDependency
-from node.ext.python.interfaces import IBlock, IDocstring
-
-
-from node.ext import python
-from node.ext.python.interfaces import IFunction,IModule
-from node.ext.python.nodes import (
-    Function,
-    Block,
+from agx.core.util import (
+    read_target_node,
+    dotted_path,
 )
-
+from node.ext.uml.interfaces import (
+    IInterface,
+    IInterfaceRealization,
+    IDependency,
+)
 from node.ext.uml.utils import (
     Inheritance,
     TaggedValues,
     UNSET,
 )
-
+from node.ext.python.interfaces import (
+    IBlock,
+    IDocstring,
+)
+from node.ext import python
+from node.ext.python.interfaces import (
+    IFunction,
+    IModule,
+)
+from node.ext.python.nodes import (
+    Function,
+    Block,
+)
+from node.ext.python.utils import Imports
 from agx.generator.zca.scope import (
     UtilityScope,
     AdapterScope,
@@ -36,16 +41,19 @@ from agx.generator.zca.scope import (
     PermitsScope,
     PermissionScope,
 )
-
 from agx.generator.zca.utils import addZcmlRef
-
-from node.ext.zcml import ZCMLNode
-from node.ext.zcml import ZCMLFile
-from node.ext.zcml import SimpleDirective
-from node.ext.zcml import ComplexDirective
-from node.ext.uml.utils import TaggedValues, UNSET
-
+from node.ext.zcml import (
+    ZCMLNode,
+    ZCMLFile,
+    SimpleDirective,
+    ComplexDirective,
+)
+from node.ext.uml.utils import (
+    TaggedValues,
+    UNSET,
+)
 from agx.generator.pyegg.utils import (
+    class_base_name,
     templatepath,
     set_copyright,
 )
@@ -57,12 +65,12 @@ registerScope('zcaadapts', 'uml2fs', None, AdaptsScope)
 registerScope('zcapermits', 'uml2fs', None, PermitsScope)
 registerScope('zcapermission', 'uml2fs', None, PermissionScope)
 
+
 @handler('interfacegeneralization', 'uml2fs', 'connectorgenerator',
          'zcainterface', order=10)
 def interfacegeneralization(self, source, target):
     """Create generalization between interfaces .
     """
-
     inheritance = Inheritance(source)
     targetclass = read_target_node(source, target.target)
     if targetclass:
@@ -83,11 +91,9 @@ def interfacegeneralization(self, source, target):
             imp = Imports(targetclass.__parent__)
             imp.set(class_base_name(derive_from),
                     [[derive_from.classname, None]])
-
-            
     if targetclass and not targetclass.bases:
         targetclass.bases.append('Interface')
-    
+
 
 @handler('zcainterface', 'uml2fs', 'hierarchygenerator',
          'zcainterface', order=20)
@@ -100,17 +106,14 @@ def zcainterface(self, source, target):
     module = target.anchor
     imp = Imports(module)
     imp.set('zope.interface', [['Interface', None]])
-
     set_copyright(source, module)
     if module.classes(name):
         class_ = module.classes(name)[0]
     else:
         class_ = python.Class(name)
         module[name] = class_
-
 #    if not class_.bases:
 #        class_.bases.append('Interface')
-
     target.finalize(source, class_)
 
 
@@ -123,6 +126,7 @@ def zcautility(self, source, target):
     #print 'zcautility'
     #print source, target
 
+
 registerScope('zcaadapter', 'uml2fs', None, AdapterScope)
 
 @handler('zcaadapterdefaultinit', 'uml2fs', 'zcagenerator', 'zcaadapter')
@@ -132,7 +136,6 @@ def zcaadapterdefaultinit(self, source, target):
     if source.stereotype('pyegg:function'):
         # XXX: <<function>> <<adapter>> on class
         return
-    
     adapter_class = read_target_node(source, target.target)
     exists = False
     for function in adapter_class.filteredvalues(IFunction):
@@ -140,8 +143,8 @@ def zcaadapterdefaultinit(self, source, target):
             exists = function
             break
     if not exists:
-        tok=token(str(adapter_class.uuid),False)
-        adapts=token(str(source.uuid),False).adapts
+        tok = token(str(adapter_class.uuid), False)
+        adapts = token(str(source.uuid), False).adapts
         if len(adapts)==1:
             params=['context']
         else:
@@ -151,18 +154,19 @@ def zcaadapterdefaultinit(self, source, target):
                     params.append(cl.name[1:].lower())
                 else:
                     params.append(cl.name.lower())
-            
         func = Function('__init__')
-        func.args=params
+        func.args = params
         block = Block()
         for param in params:
-            block.lines.append('self.%s = %s' % (param,param))
+            block.lines.append('self.%s = %s' % (param, param))
         func[block.uuid] = block
         adapter_class[func.uuid] = func
+
 
 @handler('zcaadapter_py_imports', 'uml2fs', 'zcagenerator', 'zcaadapter')
 def zcaadapter(self, source, target):
     pass
+
 
 @handler('zcaadapter_zcml', 'uml2fs', 'zcagenerator', 'zcaadapter')
 def zcaadapter_zcml(self, source, target):
@@ -171,48 +175,45 @@ def zcaadapter_zcml(self, source, target):
 #    import pdb;pdb.set_trace()
     #print 'zcaadapter'
     #print source, target
-    
-@handler('zcaadaptscollect', 'uml2fs', 'connectorgenerator', 'zcaadapts', order=10)
+
+
+@handler('zcaadaptscollect', 'uml2fs', 'connectorgenerator',
+         'zcaadapts', order=10)
 def zcaadaptscollect(self, source, target):
     pack = source.parent
-    adaptee=source.supplier
-    adapter=source.client
+    adaptee = source.supplier
+    adapter = source.client
     target = read_target_node(pack, target.target)
     targetadaptee = read_target_node(adaptee, target)
     tok = token(str(adapter.uuid), True, adapts=[])
-    adapteetok=token(str(adaptee.uuid),True,fullpath=None)
+    adapteetok = token(str(adaptee.uuid),True,fullpath=None)
     if targetadaptee:
-        adapteetok.fullpath=dotted_path(adaptee)
+        adapteetok.fullpath = dotted_path(adaptee)
     else: #its a stub
-        adapteetok.fullpath='.'.join([TaggedValues(adaptee).direct('import', 'pyegg:stub'),adaptee.name])
-                                      
+        adapteetok.fullpath = '.'.join(
+            [TaggedValues(adaptee).direct('import', 'pyegg:stub'), adaptee.name])
     if isinstance(target, python.Module):
         targetdir = target.parent
     else:
         targetdir = target
-        
 #    print 'adaptcollect:',adaptee.name
     tok.adapts.append(adaptee)
 
 
 @handler('zcaadapts', 'uml2fs', 'zcagenerator', 'zcaadapter', order=20)
 def zcaadapts(self, source, target):
-    adapter=source
-    
+    adapter = source
     if adapter.stereotype('pyegg:function'):
         # XXX: <<function>> <<adapter>> on class
         return
-    
     tok = token(str(adapter.uuid), True)
     pack = source.parent
-    
     target = read_target_node(pack, target.target)
     targetclass = read_target_node(adapter, target)
     if isinstance(target, python.Module):
         targetdir = target.parent
     else:
         targetdir = target
-    
     path = targetdir.path
     path.append('adapters.zcml')
     fullpath = os.path.join(*path)
@@ -223,7 +224,7 @@ def zcaadapts(self, source, target):
         zcml = targetdir['adapters.zcml']
     addZcmlRef(targetdir, zcml)
     targettok = token(str(targetclass.uuid), True, realizes=[], provides=None)
-    _for = [token(str(adaptee.uuid),False).fullpath for adaptee in tok.adapts]
+    _for = [token(str(adaptee.uuid), False).fullpath for adaptee in tok.adapts]
     factory = dotted_path(adapter)
     tgv = TaggedValues(adapter)
     name = tgv.direct('name', 'zca:adapter')
@@ -236,7 +237,6 @@ def zcaadapts(self, source, target):
     if not name is UNSET:
         adapts.attrs['name'] = name
     adapts.attrs['factory'] = factory
-    
     #write the provides which is collected in the zcarealize handler
     if len(targettok.realizes) == 1:
         provides = targettok.realizes[0]
@@ -245,12 +245,11 @@ def zcaadapts(self, source, target):
     adapts.attrs['provides'] = provides['path']
     if hasattr(tok,'permission'):
         adapts.attrs['permission']=tok.permission
-        
+
 
 @handler('zcarealize', 'uml2fs', 'connectorgenerator', 'zcarealize', order=10)
 def zcarealize(self, source, target):
     klass = source.implementingClassifier
-    
     if klass.stereotype('pyegg:function'):
         # XXX: <<function>> <<adapter>> on class
         return
@@ -264,7 +263,8 @@ def zcarealize(self, source, target):
     if targetinterface:
         ifdef['path'] = dotted_path(source.contract)
     else: #then its a stub
-        ifdef['path'] = '.'.join([TaggedValues(source.contract).direct('import', 'pyegg:stub'), ifdef['name']])
+        ifdef['path'] = '.'.join([TaggedValues(source.contract).direct(
+                                 'import', 'pyegg:stub'), ifdef['name']])
 
     tok.realizes.append(ifdef)
 #    print 'zcarealize:',klass.name,source.contract.name
@@ -288,7 +288,6 @@ def zcarealize(self, source, target):
         else:
             basepath = class_base_name(targetinterface)
             imp.set(basepath, [[targetinterface.classname, None]])
-        
 
 
 @handler('zcarealize_finalize', 'uml2fs', 'zcagenerator', 'pyclass')
