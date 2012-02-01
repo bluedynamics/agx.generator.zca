@@ -254,7 +254,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T2sJWfJdEeC2t8q-iQDlSQ"/>
     </children>
     <element xmi:type="uml:Stereotype" href="zca.profile.uml#_T2n34PJdEeC2t8q-iQDlSQ"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T2q7MfJdEeC2t8q-iQDlSQ" x="-68" y="216"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T2q7MfJdEeC2t8q-iQDlSQ" x="-135" y="205"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_loXzgPJjEeC2t8q-iQDlSQ" type="1026" fontName="Lucida Grande" fontHeight="11" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_loXzgvJjEeC2t8q-iQDlSQ" source="ShadowFigure">
