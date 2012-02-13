@@ -294,9 +294,7 @@ def zcarealize(self, source, target):
 def zcarealize_finalize(self, source, target):
 #   get the collected realizes 
     klass = source
-#    print 'zcarealize_finalize:',klass.name
     try:
-        tok = token(str(klass.uuid), False)
         targetclass = read_target_node(klass, target.target)
         
         if not targetclass: #stub
