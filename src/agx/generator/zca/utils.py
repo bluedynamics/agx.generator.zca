@@ -47,3 +47,13 @@ def addZcmlRef(directory, zcml):
     if directory not in token('pyeggs',False).directories:
         parentdir = directory.__parent__
         addZcmlRef(parentdir, conf)
+
+
+def zcml_include_package(directory):
+    if not 'configure.zcml' in directory.parent:
+        directory.parent['configure.zcml'] = ZCMLFile()
+    zcml = directory.parent['configure.zcml']
+    package = '.%s' % directory.name
+    if not zcml.filter(tag='include', attr='package', value=package):
+        include = SimpleDirective(name='include', parent=zcml)
+        include.attrs['package'] = package
