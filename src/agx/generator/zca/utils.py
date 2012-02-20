@@ -61,10 +61,13 @@ def addZcmlRef(directory, zcml):
         parentdir = directory.__parent__
         addZcmlRef(parentdir, conf)
 
-def get_zcml(directory,zcmlname):
+def get_zcml(directory,zcmlname,nsmap=None):
     directory.factories['.zcml']=ZCMLFile
     if not zcmlname in directory:
-        new=ZCMLFile()
+        if nsmap:
+            new=ZCMLFile(nsmap=nsmap)
+        else:
+            new=ZCMLFile()
         directory[zcmlname]=new
         res=new
     else:
@@ -73,6 +76,7 @@ def get_zcml(directory,zcmlname):
 
 def set_zcml_namespace(directory,zcmlname,nsid,nspath):
     zcml=get_zcml(directory,zcmlname)
+    zcml.nsmap['plone']='http://namespaces.plone.org/plone'
     zcml.nsmap[nsid]=nspath
     
 def set_zcml_directive(directory,zcmlname,tag,attr,value,**kw):
