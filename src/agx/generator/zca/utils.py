@@ -41,7 +41,7 @@ def addZcmlRef(directory, zcml):
 #        import pdb;pdb.set_trace()
         
         if zcml.name=='configure.zcml':
-            packname='.'+directory.name
+            packname='.'+zcml.parent.name
             found_include = conf.filter(tag='include', attr='package', 
                                         value=packname)
             #add include directive if necessary
