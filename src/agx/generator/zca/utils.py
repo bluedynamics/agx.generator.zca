@@ -42,13 +42,15 @@ def addZcmlRef(directory, zcml):
         
         if zcml.name=='configure.zcml':
             packname='.'+directory.name
-            found_include = conf.filter(tag='include', attr='package', value=packname)
+            found_include = conf.filter(tag='include', attr='package', 
+                                        value=packname)
             #add include directive if necessary
             if not found_include:
                 include = SimpleDirective(name='include', parent=conf)
                 include.attrs['package'] = packname
         else:
-            found_include = conf.filter(tag='include', attr='file', value=zcmlpath)
+            found_include = conf.filter(tag='include', attr='file', 
+                                        value=zcmlpath)
             #add include directive if necessary
             if not found_include:
                 include = SimpleDirective(name='include', parent=conf)
@@ -59,17 +61,32 @@ def addZcmlRef(directory, zcml):
         parentdir = directory.__parent__
         addZcmlRef(parentdir, conf)
 
-def addZcmlNamespace(directory,zcmlname,nsid,nspath):
-    import pdb;pdb.set_trace()
-    zcml=directory[zcmlname]
+def get_zcml(directory,zcmlname):
+    directory.factories['.zcml']=ZCMLFile
     if not zcmlname in directory:
-        directory[zcmlname]=ZCMLFile
-        
-    zcml=directory[zcmlname]
+        new=ZCMLFile()
+        directory[zcmlname]=new
+        res=new
+    else:
+        res=directory[zcmlname]
+    return res
+
+def set_zcml_namespace(directory,zcmlname,nsid,nspath):
+    zcml=get_zcml(directory,zcmlname)
     zcml.nsmap[nsid]=nspath
     
-def addZcmlDirective(directory,zcml,):
-    pass
+def set_zcml_directive(directory,zcmlname,tag,attr,value,**kw):
+    zcml=get_zcml(directory,zcmlname)
+    directives=zcml.filter(tag=tag, attr=attr, value=value)
+    if directives:
+        directive=directives[0]
+    else:
+        directive=SimpleDirective(name=tag, parent=zcml)
+            
+    directive.attrs[attr]=value
+        
+    for k in kw:
+        directive[k]=kw[k]
     
 def zcml_include_package(directory):
     if not 'configure.zcml' in directory.parent:
