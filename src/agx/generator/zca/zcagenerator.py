@@ -224,6 +224,8 @@ def zcaadapts(self, source, target):
         zcml = targetdir['adapters.zcml']
     addZcmlRef(targetdir, zcml)
     targettok = token(str(targetclass.uuid), True, realizes=[], provides=None)
+    if not hasattr(tok,'adapts'):
+        raise ValueError,'adapter class %s has no <<adapts>> dependency' % dotted_path(adapter)
     _for = [token(str(adaptee.uuid), False).fullpath for adaptee in tok.adapts]
     factory = dotted_path(adapter)
     tgv = TaggedValues(adapter)
@@ -242,7 +244,11 @@ def zcaadapts(self, source, target):
         provides = targettok.realizes[0]
     else:
         provides = targettok.provides
+
+    if not provides:
+        raise ValueError,'adapter class %s has no interface realization' % dotted_path(adapter)
     adapts.attrs['provides'] = provides['path']
+
     if hasattr(tok,'permission'):
         adapts.attrs['permission']=tok.permission
 
