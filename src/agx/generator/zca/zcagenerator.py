@@ -263,8 +263,11 @@ def zcarealize(self, source, target):
     if targetinterface:
         ifdef['path'] = dotted_path(source.contract)
     else: #then its a stub
-        ifdef['path'] = '.'.join([TaggedValues(source.contract).direct(
-                                 'import', 'pyegg:stub'), ifdef['name']])
+        tgv=TaggedValues(source.contract)
+        impf=tgv.direct('import', 'pyegg:stub')
+        if not impf:
+            raise ValueError,'Stub class %s needs a TaggedValue for "import"' % dotted_path(klass)
+        ifdef['path'] = '.'.join([impf, ifdef['name']])
 
     tok.realizes.append(ifdef)
 #    print 'zcarealize:',klass.name,source.contract.name
