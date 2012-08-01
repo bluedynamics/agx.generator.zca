@@ -294,6 +294,10 @@
     </eAnnotations>
     <children xmi:type="notation:DecorationNode" xmi:id="_2N3SIsU1EeGultIg_buOPQ" type="1034"/>
     <children xmi:type="notation:BasicCompartment" xmi:id="_2N3SI8U1EeGultIg_buOPQ" type="1071">
+      <children xmi:type="notation:Shape" xmi:id="_XaA-AMYzEeGTtocIIQKOng" type="3002" fontName="Ubuntu" fontHeight="11" lineColor="0">
+        <element xmi:type="uml:Property" href="zca.profile.uml#_XZdkYMYzEeGTtocIIQKOng"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XaA-AcYzEeGTtocIIQKOng"/>
+      </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_2N3SJMU1EeGultIg_buOPQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_2N3SJcU1EeGultIg_buOPQ"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2N3SJsU1EeGultIg_buOPQ"/>
@@ -352,7 +356,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZdxVesU2EeGultIg_buOPQ"/>
     </children>
     <element xmi:type="uml:Stereotype" href="zca.profile.uml#_ZdnkcMU2EeGultIg_buOPQ"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZdtEAcU2EeGultIg_buOPQ" x="95" y="180" width="126" height="146"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZdtEAcU2EeGultIg_buOPQ" x="230" y="180" width="126" height="146"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_afgfQMU2EeGultIg_buOPQ" type="1026" fontName="Ubuntu" fontHeight="10" lineColor="0">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_afgfQsU2EeGultIg_buOPQ" source="ShadowFigure">
@@ -376,7 +380,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_afhGXMU2EeGultIg_buOPQ"/>
     </children>
     <element xmi:type="uml:Stereotype" href="zca.profile.uml#_afa_sMU2EeGultIg_buOPQ"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_afgfQcU2EeGultIg_buOPQ" x="240" y="180" width="121" height="146"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_afgfQcU2EeGultIg_buOPQ" x="80" y="180" width="121" height="146"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_gTe5Yb-VEeCXSLIizrgdww"/>
   <element xmi:type="uml:Profile" href="zca.profile.uml#_gTeSUL-VEeCXSLIizrgdww"/>
@@ -459,13 +463,17 @@
     <element xmi:type="uml:Extension" href="zca.profile.uml#_rDa9gMU2EeGultIg_buOPQ"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rDgdEsU2EeGultIg_buOPQ" points="[0, -14, 0, 82]$[-34, -84, -34, 12]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rDi5UMU2EeGultIg_buOPQ" id="(0.5079365079365079,0.0958904109589041)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rDi5UcU2EeGultIg_buOPQ" id="(0.4421553090332805,0.76)"/>
   </edges>
   <edges xmi:type="notation:Connector" xmi:id="_tG6fQMU2EeGultIg_buOPQ" type="1013" source="_afgfQMU2EeGultIg_buOPQ" target="_YjIGAL-WEeCXSLIizrgdww" lineColor="0">
     <styles xmi:type="notation:FontStyle" xmi:id="_tG6fQcU2EeGultIg_buOPQ" fontName="Ubuntu" fontHeight="10"/>
     <element xmi:type="uml:Extension" href="zca.profile.uml#_tG0_sMU2EeGultIg_buOPQ"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tG6fQsU2EeGultIg_buOPQ" points="[2, -18, -9, 80]$[83, -88, 72, 10]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tG9ikMU2EeGultIg_buOPQ" id="(0.5371900826446281,0.14383561643835616)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tG9ikcU2EeGultIg_buOPQ" id="(0.6798732171156894,0.92)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tG9ikcU2EeGultIg_buOPQ" id="(0.37083993660855785,0.92)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_HohAUMXUEeGAF-Vtczy-6g" type="1013" source="_ZdtEAMU2EeGultIg_buOPQ" target="_c2kRIL-WEeCXSLIizrgdww" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_HohAUcXUEeGAF-Vtczy-6g" fontName="Ubuntu" fontHeight="11"/>
+    <element xmi:type="uml:Extension" href="zca.profile.uml#_HobgwMXUEeGAF-Vtczy-6g"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HohAUsXUEeGAF-Vtczy-6g" points="[47, -73, -255, 95]$[67, -103, -235, 65]$[237, -150, -65, 18]"/>
   </edges>
 </notation:Diagram>

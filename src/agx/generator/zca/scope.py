@@ -22,3 +22,15 @@ class PermitsScope(Scope):
 class PermissionScope(Scope):
     def __call__(self,node):
         return node.stereotype('zca:permission') is not None
+
+class SubscriberScope(Scope):
+    def __call__(self,node):
+        return node.stereotype('zca:subscriber') is not None
+
+class EventForScope(Scope):
+    def __call__(self,node):
+        if node.stereotype('zca:for') is not None and \
+            node.client.stereotype('zca:subscriber') is not None:
+            return True
+        else:
+            return False
