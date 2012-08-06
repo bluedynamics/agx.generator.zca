@@ -79,7 +79,7 @@ def set_zcml_namespace(directory,zcmlname,nsid,nspath):
     zcml.nsmap['plone']='http://namespaces.plone.org/plone'
     zcml.nsmap[nsid]=nspath
     
-def set_zcml_directive(directory,zcmlname,tag,attr,value,**kw):
+def set_zcml_directive(directory,zcmlname,tag,attr,value,overwrite=False,**kw):
     zcml=get_zcml(directory,zcmlname)
     directives=zcml.filter(tag=tag, attr=attr, value=value)
     if directives:
@@ -90,7 +90,8 @@ def set_zcml_directive(directory,zcmlname,tag,attr,value,**kw):
     directive.attrs[attr]=value
         
     for k in kw:
-        directive[k]=kw[k]
+        if k not in directive.attrs or overwrite:
+            directive.attrs[k]=kw[k]
     
 def zcml_include_package(directory):
     if not 'configure.zcml' in directory.parent:
