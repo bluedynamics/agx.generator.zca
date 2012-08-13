@@ -335,7 +335,8 @@ def zcarealize_finalize(self, source, target):
         try:
             blocks = targetclass.filteredvalues(IBlock)
             for b in blocks:
-                if b.text.strip().startswith('implements('):
+                b.lines=[l for l in b.lines if not l.startswith('implements(')]
+                if not b.lines:
                     del targetclass[str(b.uuid)]
             #XXX: soll repased werden
         except KeyError:
