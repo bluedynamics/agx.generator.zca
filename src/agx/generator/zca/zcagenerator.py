@@ -43,6 +43,8 @@ from agx.generator.zca.scope import (
     SubscriberScope,
     EventForScope,
 )
+from agx.generator.pyegg.utils import class_full_name
+
 from agx.generator.zca.utils import addZcmlRef
 from node.ext.zcml import (
     ZCMLNode,
@@ -197,7 +199,7 @@ def zcaadaptscollect(self, source, target):
     tok = token(str(adapter.uuid), True, adapts=[])
     adapteetok = token(str(adaptee.uuid), True, fullpath=None)
     if targetadaptee:
-        adapteetok.fullpath = dotted_path(adaptee)
+        adapteetok.fullpath = class_full_name(targetadaptee)
     else: #its a stub
         adapteetok.fullpath = '.'.join(
             [TaggedValues(adaptee).direct('import', 'pyegg:stub'), adaptee.name])
@@ -212,9 +214,12 @@ def zcaadaptscollect(self, source, target):
 @handler('zcaadapts', 'uml2fs', 'zcagenerator', 'zcaadapter', order=20)
 def zcaadapts(self, source, target):
     adapter = source
+    
     if adapter.stereotype('pyegg:function'):
         # XXX: <<function>> <<adapter>> on class
         return
+    
+    targetadapter=read_target_node(adapter, target.target)
     tok = token(str(adapter.uuid), True)
     pack = source.parent
     target = read_target_node(pack, target.target)
@@ -236,7 +241,7 @@ def zcaadapts(self, source, target):
     if not hasattr(tok, 'adapts'):
         raise ValueError, 'adapter class %s has no <<adapts>> dependency' % dotted_path(adapter)
     _for = [token(str(adaptee.uuid), False).fullpath for adaptee in tok.adapts]
-    factory = dotted_path(adapter)
+    factory = class_full_name(targetadapter)
     tgv = TaggedValues(adapter)
     name = tgv.direct('name', 'zca:adapter')
     found_adapts = zcml.filter(tag='adapter', attr='factory', value=factory)
