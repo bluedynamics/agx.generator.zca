@@ -29,8 +29,11 @@ class SubscriberScope(Scope):
 
 class EventForScope(Scope):
     def __call__(self,node):
-        if node.stereotype('zca:for') is not None and \
-            node.client.stereotype('zca:subscriber') is not None:
-            return True
-        else:
+        try:
+            if node.stereotype('zca:for') is not None and \
+                node.client.stereotype('zca:subscriber') is not None:
+                return True
+            else:
+                return False
+        except AttributeError:
             return False
