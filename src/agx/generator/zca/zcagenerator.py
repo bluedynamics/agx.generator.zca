@@ -494,6 +494,10 @@ def zcaeventfor(self, source, target):
     
     targetclass = read_target_node(adapter, target)
     targettok = token(str(targetclass.uuid), True, realizes=[], provides=None)
+    #make sure that the event is the second entry in the for list
+    if tok.fors[0].stereotype('zca:event'):
+        tok.fors.reverse()
+        
     _for = [token(str(adaptee.uuid), False).fullpath for adaptee in tok.fors]
     factory = dotted_path(adapter)
     tgv = TaggedValues(adapter)
