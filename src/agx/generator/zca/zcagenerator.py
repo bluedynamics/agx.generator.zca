@@ -109,6 +109,7 @@ def zcainterface(self, source, target):
     """
     if source.stereotype('pyegg:stub') is not None:
         return
+    
     name = source.name
     module = target.anchor
 
@@ -123,6 +124,7 @@ def zcainterface(self, source, target):
         module[name] = class_
 #    if not class_.bases:
 #        class_.bases.append('Interface')
+    token(str(class_.uuid),True,isInterface=True)
     target.finalize(source, class_)
 
 
