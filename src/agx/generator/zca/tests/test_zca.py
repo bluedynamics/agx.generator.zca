@@ -13,12 +13,13 @@ optionflags = doctest.NORMALIZE_WHITESPACE | \
               doctest.REPORT_ONLY_FIRST_FAILURE
 
 TESTFILES = [
-    'test_zca.txt',
+    'test_zca.rst',
 ]
 
 datadir = os.path.join(os.path.dirname(__file__), 'data')
 
 def test_suite():
+    import agx.core.loader
     return unittest.TestSuite([
         doctest.DocFileSuite(
             file, 
