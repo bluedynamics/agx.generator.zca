@@ -1,4 +1,4 @@
 *.pyc
 *.pyo
 src/agx.generator.zca.egg-info
-src/agx/generator/zca/tests/data/agx.generator.zca-sample
+src/agx/generator/zca/testing/data/agx.generator.zca-sample
