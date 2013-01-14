@@ -44,7 +44,6 @@ from agx.generator.zca.scope import (
     EventForScope,
 )
 from agx.generator.pyegg.utils import class_full_name
-
 from agx.generator.zca.utils import addZcmlRef
 from node.ext.zcml import (
     ZCMLNode,
@@ -68,7 +67,6 @@ registerScope('zcarealize', 'uml2fs', [IInterfaceRealization], Scope)
 registerScope('zcaadapts', 'uml2fs', None, AdaptsScope)
 registerScope('zcapermits', 'uml2fs', None, PermitsScope)
 registerScope('zcapermission', 'uml2fs', None, PermissionScope)
-
 registerScope('zcasubscriber', 'uml2fs', None, SubscriberScope)
 registerScope('eventfor', 'uml2fs', None, EventForScope)
 
@@ -109,12 +107,12 @@ def zcainterface(self, source, target):
     """
     if source.stereotype('pyegg:stub') is not None:
         return
-    
+
     name = source.name
     module = target.anchor
 
     imp = Imports(module)
-        
+
     imp.set('zope.interface', [['Interface', None]])
     set_copyright(source, module)
     if module.classes(name):
@@ -124,21 +122,22 @@ def zcainterface(self, source, target):
         module[name] = class_
 #    if not class_.bases:
 #        class_.bases.append('Interface')
-    token(str(class_.uuid),True,isInterface=True)
+    token(str(class_.uuid), True, isInterface=True)
     target.finalize(source, class_)
 
 
 registerScope('zcautility', 'uml2fs', None, UtilityScope)
 
+
 @handler('zcautility', 'uml2fs', 'zcagenerator', 'zcautility')
 def zcautility(self, source, target):
     """Create zope utility.
     """
-    #print 'zcautility'
-    #print source, target
+    # XXX
 
 
 registerScope('zcaadapter', 'uml2fs', None, AdapterScope)
+
 
 @handler('zcaadapterdefaultinit', 'uml2fs', 'zcagenerator', 'zcaadapter')
 def zcaadapterdefaultinit(self, source, target):
@@ -183,12 +182,8 @@ def zcaadapter(self, source, target):
 def zcaadapter_zcml(self, source, target):
     """Create zope adapter.
     """
-    #print 'zcaadapter'
-    #print source, target
+    # XXX
 
-#------------------------------------------------------------------------------
-#  adapts
-#------------------------------------------------------------------------------
 
 @handler('zcaadaptscollect', 'uml2fs', 'connectorgenerator',
          'zcaadapts', order=10)
@@ -202,26 +197,25 @@ def zcaadaptscollect(self, source, target):
     adapteetok = token(str(adaptee.uuid), True, fullpath=None)
     if targetadaptee:
         adapteetok.fullpath = class_full_name(targetadaptee)
-    else: #its a stub
+    # its a stub
+    else:
         adapteetok.fullpath = '.'.join(
-            [TaggedValues(adaptee).direct('import', 'pyegg:stub'), adaptee.name])
+            [TaggedValues(adaptee).direct('import',
+                                          'pyegg:stub'), adaptee.name])
     if isinstance(target, python.Module):
         targetdir = target.parent
     else:
         targetdir = target
-#    print 'adaptcollect:',adaptee.name
     tok.adapts.append(adaptee)
 
 
 @handler('zcaadapts', 'uml2fs', 'zcagenerator', 'zcaadapter', order=20)
 def zcaadapts(self, source, target):
     adapter = source
-    
     if adapter.stereotype('pyegg:function'):
         # XXX: <<function>> <<adapter>> on class
         return
-    
-    targetadapter=read_target_node(adapter, target.target)
+    targetadapter = read_target_node(adapter, target.target)
     tok = token(str(adapter.uuid), True)
     pack = source.parent
     target = read_target_node(pack, target.target)
@@ -241,7 +235,9 @@ def zcaadapts(self, source, target):
     addZcmlRef(targetdir, zcml)
     targettok = token(str(targetclass.uuid), True, realizes=[], provides=None)
     if not hasattr(tok, 'adapts'):
-        raise ValueError, 'adapter class %s has no <<adapts>> dependency' % dotted_path(adapter)
+        msg = 'adapter class %s has no <<adapts>> dependency' \
+            % dotted_path(adapter)
+        raise ValueError(msg)
     _for = [token(str(adaptee.uuid), False).fullpath for adaptee in tok.adapts]
     factory = class_full_name(targetadapter)
     tgv = TaggedValues(adapter)
@@ -255,22 +251,20 @@ def zcaadapts(self, source, target):
     if not name is UNSET:
         adapts.attrs['name'] = name
     adapts.attrs['factory'] = factory
-    #write the provides which is collected in the zcarealize handler
+    # write the provides which is collected in the zcarealize handler
     if len(targettok.realizes) == 1:
         provides = targettok.realizes[0]
     else:
         provides = targettok.provides
-
     if not provides:
-        raise ValueError, 'adapter class %s has no interface realization' % dotted_path(adapter)
+        msg = 'adapter class %s has no interface realization' \
+            % dotted_path(adapter)
+        raise ValueError(msg)
     adapts.attrs['provides'] = provides['path']
 
     if hasattr(tok, 'permission'):
         adapts.attrs['permission'] = tok.permission
 
-#------------------------------------------------------------------------------
-#  realize
-#------------------------------------------------------------------------------
 
 @handler('zcarealize', 'uml2fs', 'connectorgenerator', 'zcarealize', order=10)
 def zcarealize(self, source, target):
@@ -278,28 +272,30 @@ def zcarealize(self, source, target):
 #    if klass.stereotype('pyegg:function'):
 #        # XXX: <<function>> <<adapter>> on class
 #        return
-    
+
     ifacename = source.contract.name
     targetclass = read_target_node(klass, target.target)
     targetinterface = read_target_node(source.contract, target.target)
     tok = token(str(targetclass.uuid), True, realizes=[], provides=None)
-    
+
     ifdef = {'name':source.contract.name}
     if targetinterface:
         ifdef['path'] = dotted_path(source.contract)
-    else: #then its a stub
+    # then its a stub
+    else:
         tgv = TaggedValues(source.contract)
         impf = tgv.direct('import', 'pyegg:stub')
         if not impf:
-            raise ValueError, 'Stub class %s needs a TaggedValue for "import"' % dotted_path(klass)
+            msg = 'Stub class %s needs a TaggedValue for "import"' \
+                % dotted_path(klass)
+            raise ValueError(msg)
         ifdef['path'] = '.'.join([impf, ifdef['name']])
 
     tok.realizes.append(ifdef)
-#    print 'zcarealize:',klass.name,source.contract.name
     if source.stereotype('zca:provides'):
         tok.provides = ifdef
-    
-    #import the interface
+
+    # import the interface
     tgv = TaggedValues(source.contract)
     import_from = tgv.direct('import', 'pyegg:stub')
     imp = Imports(targetclass.__parent__)
@@ -308,9 +304,12 @@ def zcarealize(self, source, target):
         tok = token(str(targetclass.uuid), True, depends_on=set())
         tok.depends_on.add(targetinterface)
 
-    #if (targetinterface is None -> Stub) or targetinterface is in another module: import
-    if not targetinterface or targetclass.__parent__ is not targetinterface.__parent__:
-        if import_from is not UNSET: #we have a stub interface
+    # if (targetinterface is None -> Stub) or targetinterface is in another
+    # module -> import
+    if not targetinterface \
+      or targetclass.__parent__ is not targetinterface.__parent__:
+        # we have a stub interface
+        if import_from is not UNSET:
             basepath = import_from
             imp.set(basepath, [[source.contract.name, None]])
         else:
@@ -320,39 +319,40 @@ def zcarealize(self, source, target):
 
 @handler('zcarealize_finalize', 'uml2fs', 'zcagenerator', 'pyclass')
 def zcarealize_finalize(self, source, target):
-#   get the collected realizes 
+    # get the collected realizes 
     klass = source
     try:
         targetclass = read_target_node(klass, target.target)
-        
-        if not targetclass: #stub
+        # stub
+        if not targetclass:
             return
-        
+
         targettok = token(str(targetclass.uuid), False)
+        # class has no interfaces
         if not hasattr(targettok, 'realizes'):
-            return #class has no interfaces
+            return
         ifacenames = [r['name'] for r in targettok.realizes]
         imptext = 'implements(%s)' % ','.join(ifacenames)
         docstrings = targetclass.filteredvalues(IDocstring)
-        
+
         module = targetclass.__parent__
         imp = Imports(module)
         imp.set('zope.interface', [['implements', None]])
-        #delete all implements stmts
+        # delete all implements stmts
         try:
             blocks = targetclass.filteredvalues(IBlock)
             for b in blocks:
-                b.lines=[l for l in b.lines if not l.startswith('implements(')]
+                b.lines = \
+                    [l for l in b.lines if not l.startswith('implements(')]
                 if not b.lines:
                     del targetclass[str(b.uuid)]
-            #XXX: soll repased werden
-        except KeyError:
-            print 'error during delete'
-            pass
-        
+            # XXX: should be reparsed
+        except KeyError, e:
+            print 'error during delete: %s' % str(e)
+
         if klass.stereotype('pyegg:function'):
             return
-        
+    
         block = Block(imptext)
         block.__name__ = 'implements'
         targetclass.insertfirst(block)
@@ -360,36 +360,31 @@ def zcarealize_finalize(self, source, target):
         if docstrings:
             imp = targetclass.detach('implements')
             targetclass.insertafter(imp, docstrings[0])
-
         # vors __init__
     except ComponentLookupError:
-        #keine realize parents vorhanden
+        # no realize parents present
         pass
-    
-#------------------------------------------------------------------------------
-#  permissions
-#------------------------------------------------------------------------------
+
 
 @handler('createpermission', 'uml2fs', 'connectorgenerator', 'zcapermission')
 def createpermission(self, source, target):
-    
     targetclass = read_target_node(source, target.target)
     module = targetclass.parent
     targetdir = module.parent
-
     path = class_base_name(targetclass)
-    
-    #prevent python class from being generated
+    # prevent python class from being generated
     sts = [st.name for st in source.stereotypes]
-    if 'zca:permission' in sts and len(sts) == 1: #only if no other steroetypes are attached
-        #class also has to be deleted from __init__
+
+    # only if no other steroetypes are attached
+    if 'zca:permission' in sts and len(sts) == 1:
+        # class also has to be deleted from __init__
         init = targetdir['__init__.py']
         for imp in init.imports():
             if imp.fromimport == path and imp.names[0][0] == source.name:
                 del init[imp.__name__]
         del module[targetclass.__name__]
 
-    #and now write the permission definition into confure.zcml
+    # and now write the permission definition into confure.zcml
     zcmlpath = targetdir.path
     zcmlpath.append('configure.zcml')
     fullpath = os.path.join(*zcmlpath)
@@ -400,14 +395,13 @@ def createpermission(self, source, target):
     else:
         zcml = targetdir['configure.zcml']
     addZcmlRef(targetdir, zcml)
-    
+
     id = TaggedValues(source).direct('id', 'zca:permission')
-    
     if id is UNSET:
         permid = dotted_path(source)
     else:
         permid = id
-        
+
     found_directives = zcml.filter(tag='permission', attr='id', value=permid)
     if found_directives:
         directive = found_directives[0]
@@ -422,29 +416,23 @@ def createpermission(self, source, target):
     description = TaggedValues(source).direct('description', 'zca:permission')
     if not description is UNSET:
         directive.attrs['description'] = description
-    
-    
+
+
 @handler('collectpermissions', 'uml2fs', 'connectorgenerator', 'zcapermits')
 def collectpermissions(self, source, target):
     permid = dotted_path(source.supplier)
     id = TaggedValues(source.supplier).direct('id', 'zca:permission')
-    
     if not id is UNSET:
         permid = id
-
     tok = token(str(source.client.uuid), True, permission=permid)
-    
-#------------------------------------------------------------------------------
-#  subscriber
-#------------------------------------------------------------------------------
+
 
 @handler('zcasubscriber', 'uml2fs', 'connectorgenerator',
          'zcasubscriber', order=42)
 def zcasubscriber(self, source, target):
-#    pass
     func = read_target_node(source, target.target)
     func.args = ['object', 'event']
-    
+
 
 @handler('zcaeventforcollect', 'uml2fs', 'connectorgenerator',
          'eventfor', order=10)
@@ -458,14 +446,15 @@ def zcaeventforcollect(self, source, target):
     adapteetok = token(str(adaptee.uuid), True, fullpath=None)
     if targetadaptee:
         adapteetok.fullpath = dotted_path(adaptee)
-    else: #its a stub
+    # its a stub
+    else:
         adapteetok.fullpath = '.'.join(
-            [TaggedValues(adaptee).direct('import', 'pyegg:stub'), adaptee.name])
+            [TaggedValues(adaptee).direct('import',
+                                          'pyegg:stub'), adaptee.name])
     if isinstance(target, python.Module):
         targetdir = target.parent
     else:
         targetdir = target
-#    print 'adaptcollect:',adaptee.name
     tok.fors.append(adaptee)
 
 
@@ -474,8 +463,10 @@ def zcaeventfor(self, source, target):
     adapter = source
     tok = token(str(adapter.uuid), True)
     if not hasattr(tok, 'fors'):
-        raise ValueError, 'subscriber class %s has no <<for>> dependency' % dotted_path(adapter)
-    
+        msg = 'subscriber class %s has no <<for>> dependency' \
+            % dotted_path(adapter)
+        raise ValueError(msg)
+
     pack = source.parent
     target = read_target_node(pack, target.target)
     if isinstance(target, python.Module):
@@ -492,27 +483,25 @@ def zcaeventfor(self, source, target):
     else:
         zcml = targetdir['subscribers.zcml']
     addZcmlRef(targetdir, zcml)
-
     
     targetclass = read_target_node(adapter, target)
     targettok = token(str(targetclass.uuid), True, realizes=[], provides=None)
-    #make sure that the event is the second entry in the for list
+    # make sure that the event is the second entry in the for list
     if tok.fors[0].stereotype('zca:event'):
         tok.fors.reverse()
-        
+
     _for = [token(str(adaptee.uuid), False).fullpath for adaptee in tok.fors]
     factory = dotted_path(adapter)
     tgv = TaggedValues(adapter)
     name = tgv.direct('name', 'zca:for')
-    isfunc=adapter.stereotype('pyegg:function')
-    #functions are declared handler, classes factories
+    isfunc = adapter.stereotype('pyegg:function')
+    # functions are declared handler, classes factories
     if isfunc:
         attrname = 'handler'
     else:
         attrname = 'factory'
 
     found_adapts = zcml.filter(tag='subscriber', attr=attrname, value=factory)
-        
     if found_adapts:
         adapts = found_adapts[0]
     else:     
@@ -521,7 +510,7 @@ def zcaeventfor(self, source, target):
     if not name is UNSET:
         adapts.attrs['name'] = name
     adapts.attrs[attrname] = factory
-    #write the provides which is collected in the zcarealize handler
+    # write the provides which is collected in the zcarealize handler
     if len(targettok.realizes) == 1:
         provides = targettok.realizes[0]
     else:

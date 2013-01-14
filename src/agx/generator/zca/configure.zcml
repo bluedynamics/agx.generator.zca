@@ -2,25 +2,22 @@
            xmlns:agx="http://namespaces.zope.org/agx">
 
   <include package="agx.generator.pyegg" />
-  
+
   <utility
     name="agx.generator.zca.profilelocation"
 	provides="agx.core.interfaces.IProfileLocation"
-	component=".profiles.ProfileLocation"
-  />
-  
+	component=".profiles.ProfileLocation" />
+
   <agx:generator
     name="zcagenerator"
     transform="uml2fs"
     depends="semanticsgenerator"
-    description="Generator for code sematics."
-  />
+    description="Generator for code sematics." />
 
   <agx:generator
     name="zcasemanticsgenerator"
     transform="uml2fs"
     depends="zcagenerator"
-    description="Generator for zca code sematics."
-  />
+    description="Generator for zca code sematics." />
 
 </configure>

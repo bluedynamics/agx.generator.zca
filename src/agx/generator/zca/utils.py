@@ -1,19 +1,24 @@
 import os 
-
 from agx.core import (
     handler,
     Scope,
     registerScope,
     token
 )
-from node.ext.zcml import ZCMLNode
-from node.ext.zcml import ZCMLFile
-from node.ext.zcml import SimpleDirective
-from node.ext.zcml import ComplexDirective
-from node.ext.uml.utils import TaggedValues, UNSET
+from node.ext.zcml import (
+    ZCMLNode,
+    ZCMLFile,
+    SimpleDirective,
+    ComplexDirective,
+)
+from node.ext.uml.utils import (
+    TaggedValues,
+    UNSET,
+)
 
 
 confname = 'configure.zcml'
+
 
 def relpath(self,other):
     assert self.path == other.path[:len(self.path)], \
@@ -24,75 +29,74 @@ def relpath(self,other):
 def addZcmlRef(directory, zcml):
     """Adds a reference to a zcml file and implicitly taks care for creating 
     a configure.zcml"""
-    # zcmls zamsammeln, um zu wissen, was vom configure.zcml includiert 
-    # werden soll
+    # collect zcmls to determine whether to include configure.zcml. 
     path = directory.path
     path.append(confname)
-    #fullpath = os.path.join(*path)
+    # fullpath = os.path.join(*path)
     if confname not in directory.keys():
-        #conf = ZCMLFile(fullpath)
+        # conf = ZCMLFile(fullpath)
         conf = ZCMLFile()
         directory[confname] = conf
     else:
         conf = directory[confname]
 
     zcmlpath = relpath(directory,zcml)
-    if zcmlpath!='configure.zcml':
-#        import pdb;pdb.set_trace()
-        
-        if zcml.name=='configure.zcml':
-            packname='.'+zcml.parent.name
-            found_include = conf.filter(tag='include', attr='package', 
-                                        value=packname)
-            #add include directive if necessary
+    if zcmlpath != 'configure.zcml':
+        if zcml.name == 'configure.zcml':
+            packname = '.' + zcml.parent.name
+            found_include = conf.filter(
+                tag='include', attr='package', value=packname)
+            # add include directive if necessary
             if not found_include:
                 include = SimpleDirective(name='include', parent=conf)
                 include.attrs['package'] = packname
         else:
             found_include = conf.filter(tag='include', attr='file', 
                                         value=zcmlpath)
-            #add include directive if necessary
+            # add include directive if necessary
             if not found_include:
                 include = SimpleDirective(name='include', parent=conf)
                 include.attrs['file'] = zcmlpath
 
-        
-    if directory not in token('pyeggs',False).directories:
+    if directory not in token('pyeggs', False).directories:
         parentdir = directory.__parent__
         addZcmlRef(parentdir, conf)
 
-def get_zcml(directory,zcmlname,nsmap=None):
-    directory.factories['.zcml']=ZCMLFile
+
+def get_zcml(directory, zcmlname, nsmap=None):
+    directory.factories['.zcml'] = ZCMLFile
     if not zcmlname in directory:
         if nsmap:
-            new=ZCMLFile(nsmap=nsmap)
+            new = ZCMLFile(nsmap=nsmap)
         else:
-            new=ZCMLFile()
-        directory[zcmlname]=new
-        res=new
+            new = ZCMLFile()
+        directory[zcmlname] = new
+        res = new
     else:
-        res=directory[zcmlname]
+        res = directory[zcmlname]
     return res
 
-def set_zcml_namespace(directory,zcmlname,nsid,nspath):
-    zcml=get_zcml(directory,zcmlname)
-    zcml.nsmap['plone']='http://namespaces.plone.org/plone'
-    zcml.nsmap[nsid]=nspath
-    
-def set_zcml_directive(directory,zcmlname,tag,attr,value,overwrite=False,**kw):
-    zcml=get_zcml(directory,zcmlname)
-    directives=zcml.filter(tag=tag, attr=attr, value=value)
+
+def set_zcml_namespace(directory, zcmlname, nsid, nspath):
+    zcml = get_zcml(directory, zcmlname)
+    zcml.nsmap['plone'] = 'http://namespaces.plone.org/plone'
+    zcml.nsmap[nsid] = nspath
+
+
+def set_zcml_directive(directory, zcmlname, tag, attr, value,
+                       overwrite=False, **kw):
+    zcml = get_zcml(directory, zcmlname)
+    directives = zcml.filter(tag=tag, attr=attr, value=value)
     if directives:
-        directive=directives[0]
+        directive = directives[0]
     else:
-        directive=SimpleDirective(name=tag, parent=zcml)
-            
+        directive = SimpleDirective(name=tag, parent=zcml)
     directive.attrs[attr]=value
-        
     for k in kw:
         if k not in directive.attrs or overwrite:
-            directive.attrs[k]=kw[k]
-    
+            directive.attrs[k] = kw[k]
+
+
 def zcml_include_package(directory):
     if not 'configure.zcml' in directory.parent:
         directory.parent['configure.zcml'] = ZCMLFile()

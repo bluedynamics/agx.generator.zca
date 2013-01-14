@@ -1,5 +1,3 @@
-# Copyright BlueDynamics Alliance - http://bluedynamics.com
-# GNU General Public License Version 2
 import os
 import unittest
 import doctest
