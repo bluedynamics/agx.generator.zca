@@ -3,7 +3,7 @@ This Package is part of **AGX**. See `<http://agx.me>`_ for Details.
 Changes
 =======
 
-1.0 (svn)
----------
+1.0a1
+-----
 
-  -make it work
+- initial release

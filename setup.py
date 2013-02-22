@@ -5,9 +5,10 @@ from setuptools import (
 )
 
 
-version = '1.0'
-shortdesc ="AGX Generator for Zope Component Architecture"
+version = '1.0a1'
+shortdesc = "AGX generator for zope component architecture"
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
+longdesc += open(os.path.join(os.path.dirname(__file__), 'LICENSE.rst')).read()
 
 
 setup(name='agx.generator.zca',
@@ -17,13 +18,12 @@ setup(name='agx.generator.zca',
       classifiers=[
           'Development Status :: 3 - Alpha',
           'License :: OSI Approved :: GNU General Public License (GPL)',
-          'Operating System :: OS Independent',
           'Programming Language :: Python', 
       ],
-      keywords='AGX, Code Generator, Zope Component Architecture',
+      keywords='AGX, Code Generator',
       author='BlueDynamics Alliance',
       author_email='dev@bluedynamics.com',
-      url=u'https://svn.plone.org/svn/archetypes/AGX',
+      url=u'http://github.com/bluedynamics/agx.generator.zca',
       license='GNU General Public Licence',
       packages=find_packages('src'),
       package_dir={'': 'src'},
