@@ -2,3 +2,4 @@
 *.pyo
 src/agx.generator.zca.egg-info
 src/agx/generator/zca/testing/data/agx.generator.zca-sample
+dist/
